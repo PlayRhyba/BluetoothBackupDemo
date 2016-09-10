@@ -8,9 +8,10 @@
 
 
 #import "BBSClientViewController.h"
+#import "BBSConnectionManager.h"
 
 
-@interface BBSClientViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface BBSClientViewController () <UITableViewDataSource, UITableViewDelegate, BBSConnectionManagerDelegate>
 
 @property (nonatomic, weak) IBOutlet UIView *statusView;
 @property (nonatomic, weak) IBOutlet UIButton *connectButton;
@@ -36,6 +37,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [[BBSConnectionManager sharedInstance]addDelegate:self];
 }
 
 
@@ -45,16 +47,21 @@
 }
 
 
+- (void)dealloc {
+    [[BBSConnectionManager sharedInstance]removeDelegate:self];
+}
+
+
 #pragma mark - IBAction
 
 
 - (IBAction)connectButtonClicked:(UIButton *)sender {
-    
+    [[BBSConnectionManager sharedInstance]connectWithViewController:self];
 }
 
 
 - (IBAction)disconnectButtonClicked:(UIButton *)sender {
-    
+    [[BBSConnectionManager sharedInstance]disconnect];
 }
 
 
@@ -83,6 +90,16 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
+}
+
+
+#pragma mark - BBSConnectionManagerDelegate
+
+
+- (void)connectionManager:(BBSConnectionManager *)manager
+           didChangeState:(MCSessionState)state
+            clientSession:(MCSession *)session
+                     peer:(MCPeerID *)peerID {
 }
 
 

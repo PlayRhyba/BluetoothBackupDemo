@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		112764461D84B96400F408D7 /* NSString+Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 112764451D84B96400F408D7 /* NSString+Utilities.m */; };
 		11D31D8F1D834DDD008168CA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 11D31D8E1D834DDD008168CA /* main.m */; };
 		11D31D921D834DDD008168CA /* BBSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 11D31D911D834DDD008168CA /* BBSAppDelegate.m */; };
 		11D31D951D834DDD008168CA /* BBSClientViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11D31D941D834DDD008168CA /* BBSClientViewController.m */; };
@@ -19,6 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		112764441D84B96400F408D7 /* NSString+Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Utilities.h"; sourceTree = "<group>"; };
+		112764451D84B96400F408D7 /* NSString+Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Utilities.m"; sourceTree = "<group>"; };
 		11D31D8A1D834DDD008168CA /* BluetoothBackupDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BluetoothBackupDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		11D31D8E1D834DDD008168CA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		11D31D901D834DDD008168CA /* BBSAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBSAppDelegate.h; sourceTree = "<group>"; };
@@ -48,6 +51,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		112764431D84B94E00F408D7 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				112764441D84B96400F408D7 /* NSString+Utilities.h */,
+				112764451D84B96400F408D7 /* NSString+Utilities.m */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
 		11D31D811D834DDD008168CA = {
 			isa = PBXGroup;
 			children = (
@@ -69,12 +81,12 @@
 			children = (
 				11D31DAC1D835C57008168CA /* Common */,
 				11D31DA81D8359E2008168CA /* BBSConnectionManager */,
-				11D31D901D834DDD008168CA /* BBSAppDelegate.h */,
-				11D31D911D834DDD008168CA /* BBSAppDelegate.m */,
 				11D31D931D834DDD008168CA /* BBSClientViewController.h */,
 				11D31D941D834DDD008168CA /* BBSClientViewController.m */,
 				11D31D961D834DDD008168CA /* BBSServerViewController.h */,
 				11D31D971D834DDD008168CA /* BBSServerViewController.m */,
+				11D31D901D834DDD008168CA /* BBSAppDelegate.h */,
+				11D31D911D834DDD008168CA /* BBSAppDelegate.m */,
 				11D31D991D834DDD008168CA /* Main.storyboard */,
 				11D31D9C1D834DDD008168CA /* Assets.xcassets */,
 				11D31D9E1D834DDD008168CA /* LaunchScreen.storyboard */,
@@ -104,6 +116,7 @@
 		11D31DAC1D835C57008168CA /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				112764431D84B94E00F408D7 /* Categories */,
 				11D31DAD1D835C75008168CA /* BBSMulticastSender.h */,
 				11D31DAE1D835C75008168CA /* BBSMulticastSender.m */,
 			);
@@ -186,6 +199,7 @@
 				11D31DAB1D8359F7008168CA /* BBSConnectionManager.m in Sources */,
 				11D31D951D834DDD008168CA /* BBSClientViewController.m in Sources */,
 				11D31D8F1D834DDD008168CA /* main.m in Sources */,
+				112764461D84B96400F408D7 /* NSString+Utilities.m in Sources */,
 				11D31DAF1D835C75008168CA /* BBSMulticastSender.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -298,7 +312,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = BluetoothBackupDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.private.BluetoothBackupDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.smarttab.customerapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -309,7 +323,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = BluetoothBackupDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.private.BluetoothBackupDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.smarttab.customerapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
