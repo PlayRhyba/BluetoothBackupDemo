@@ -1,18 +1,18 @@
 //
-//  NSString+Utilities.h
+//  MCSession+Utilities.h
 //  BluetoothBackupDemo
 //
-//  Created by Alexander Snegursky on 9/10/16.
+//  Created by Alexander Snegursky on 9/11/16.
 //  Copyright © 2016 Alexander Snegursky. All rights reserved.
 //
 
 
-#import <Foundation/Foundation.h>
 #import <MultipeerConnectivity/MultipeerConnectivity.h>
 
 
-@interface NSString (Utilities)
+@interface MCSession (Utilities)
 
++ (MCSession *)sessionWithDelegate:(id<MCSessionDelegate>)delegate;
 + (NSString *)stringWithSessionState:(MCSessionState)state;
 
 @end

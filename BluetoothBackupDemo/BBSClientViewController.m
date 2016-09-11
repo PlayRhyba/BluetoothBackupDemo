@@ -8,10 +8,10 @@
 
 
 #import "BBSClientViewController.h"
-#import "BBSConnectionManager.h"
+#import "BBSBrowser.h"
 
 
-@interface BBSClientViewController () <UITableViewDataSource, UITableViewDelegate, BBSConnectionManagerDelegate>
+@interface BBSClientViewController () <UITableViewDataSource, UITableViewDelegate, BBSBrowserDelegate>
 
 @property (nonatomic, weak) IBOutlet UIView *statusView;
 @property (nonatomic, weak) IBOutlet UIButton *connectButton;
@@ -37,7 +37,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [[BBSConnectionManager sharedInstance]addDelegate:self];
+    [[BBSBrowser sharedInstance]addDelegate:self];
 }
 
 
@@ -48,7 +48,7 @@
 
 
 - (void)dealloc {
-    [[BBSConnectionManager sharedInstance]removeDelegate:self];
+    [[BBSBrowser sharedInstance]removeDelegate:self];
 }
 
 
@@ -56,12 +56,12 @@
 
 
 - (IBAction)connectButtonClicked:(UIButton *)sender {
-    [[BBSConnectionManager sharedInstance]connectWithViewController:self];
+    [[BBSBrowser sharedInstance]browseWithViewController:self];
 }
 
 
 - (IBAction)disconnectButtonClicked:(UIButton *)sender {
-    [[BBSConnectionManager sharedInstance]disconnect];
+    [[BBSBrowser sharedInstance]disconnect];
 }
 
 
@@ -71,7 +71,17 @@
 
 
 - (IBAction)sendBackupButtonClicked:(UIButton *)sender {
+    NSInteger number = arc4random_uniform(3);
+    NSString *bundlePath = [[NSBundle mainBundle]pathForResource:@(number).stringValue ofType:@"png"];
     
+    if (bundlePath) {
+        [[BBSBrowser sharedInstance]sendResourceAtURL:[NSURL fileURLWithPath:bundlePath]
+                                    completionHandler:^(NSError *error) {
+                                        NSLog(@"");
+                                    } progressHandler:^(float progress) {
+                                        
+                                    }];
+    }
 }
 
 
@@ -93,13 +103,14 @@
 }
 
 
-#pragma mark - BBSConnectionManagerDelegate
+#pragma mark - BBSBrowserDelegate
 
 
-- (void)connectionManager:(BBSConnectionManager *)manager
-           didChangeState:(MCSessionState)state
-            clientSession:(MCSession *)session
-                     peer:(MCPeerID *)peerID {
+- (void)browser:(BBSBrowser *)browser
+ didChangeState:(MCSessionState)state
+        session:(MCSession *)session
+           peer:(MCPeerID *)peerID {
+    
 }
 
 

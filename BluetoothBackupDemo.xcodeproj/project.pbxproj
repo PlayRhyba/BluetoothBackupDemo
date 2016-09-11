@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		112764461D84B96400F408D7 /* NSString+Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 112764451D84B96400F408D7 /* NSString+Utilities.m */; };
 		11D31D8F1D834DDD008168CA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 11D31D8E1D834DDD008168CA /* main.m */; };
 		11D31D921D834DDD008168CA /* BBSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 11D31D911D834DDD008168CA /* BBSAppDelegate.m */; };
 		11D31D951D834DDD008168CA /* BBSClientViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11D31D941D834DDD008168CA /* BBSClientViewController.m */; };
@@ -15,13 +14,16 @@
 		11D31D9B1D834DDD008168CA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11D31D991D834DDD008168CA /* Main.storyboard */; };
 		11D31D9D1D834DDD008168CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11D31D9C1D834DDD008168CA /* Assets.xcassets */; };
 		11D31DA01D834DDD008168CA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11D31D9E1D834DDD008168CA /* LaunchScreen.storyboard */; };
-		11D31DAB1D8359F7008168CA /* BBSConnectionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 11D31DAA1D8359F7008168CA /* BBSConnectionManager.m */; };
-		11D31DAF1D835C75008168CA /* BBSMulticastSender.m in Sources */ = {isa = PBXBuildFile; fileRef = 11D31DAE1D835C75008168CA /* BBSMulticastSender.m */; };
+		11DC99081D85891700F96916 /* BBSMulticastSender.m in Sources */ = {isa = PBXBuildFile; fileRef = 11DC99041D85891700F96916 /* BBSMulticastSender.m */; };
+		11DC990C1D85895E00F96916 /* BBSAdvertiser.m in Sources */ = {isa = PBXBuildFile; fileRef = 11DC990B1D85895E00F96916 /* BBSAdvertiser.m */; };
+		11DC990F1D85899E00F96916 /* BBSBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 11DC990E1D85899E00F96916 /* BBSBrowser.m */; };
+		11DC99131D858D7100F96916 /* MCSession+Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 11DC99121D858D7100F96916 /* MCSession+Utilities.m */; };
+		11DC99181D85940B00F96916 /* 0.png in Resources */ = {isa = PBXBuildFile; fileRef = 11DC99151D85940B00F96916 /* 0.png */; };
+		11DC991A1D85940B00F96916 /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 11DC99171D85940B00F96916 /* 2.png */; };
+		11DC991C1D85A71D00F96916 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 11DC991B1D85A71D00F96916 /* 1.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		112764441D84B96400F408D7 /* NSString+Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Utilities.h"; sourceTree = "<group>"; };
-		112764451D84B96400F408D7 /* NSString+Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Utilities.m"; sourceTree = "<group>"; };
 		11D31D8A1D834DDD008168CA /* BluetoothBackupDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BluetoothBackupDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		11D31D8E1D834DDD008168CA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		11D31D901D834DDD008168CA /* BBSAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBSAppDelegate.h; sourceTree = "<group>"; };
@@ -34,10 +36,18 @@
 		11D31D9C1D834DDD008168CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		11D31D9F1D834DDD008168CA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		11D31DA11D834DDD008168CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		11D31DA91D8359F7008168CA /* BBSConnectionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBSConnectionManager.h; sourceTree = SOURCE_ROOT; };
-		11D31DAA1D8359F7008168CA /* BBSConnectionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBSConnectionManager.m; sourceTree = SOURCE_ROOT; };
-		11D31DAD1D835C75008168CA /* BBSMulticastSender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBSMulticastSender.h; sourceTree = "<group>"; };
-		11D31DAE1D835C75008168CA /* BBSMulticastSender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBSMulticastSender.m; sourceTree = "<group>"; };
+		11DC99031D85891700F96916 /* BBSMulticastSender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBSMulticastSender.h; sourceTree = "<group>"; };
+		11DC99041D85891700F96916 /* BBSMulticastSender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBSMulticastSender.m; sourceTree = "<group>"; };
+		11DC990A1D85895E00F96916 /* BBSAdvertiser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBSAdvertiser.h; sourceTree = "<group>"; };
+		11DC990B1D85895E00F96916 /* BBSAdvertiser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBSAdvertiser.m; sourceTree = "<group>"; };
+		11DC990D1D85899E00F96916 /* BBSBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBSBrowser.h; sourceTree = "<group>"; };
+		11DC990E1D85899E00F96916 /* BBSBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBSBrowser.m; sourceTree = "<group>"; };
+		11DC99101D858A7000F96916 /* BBSConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBSConstants.h; sourceTree = "<group>"; };
+		11DC99111D858D7100F96916 /* MCSession+Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MCSession+Utilities.h"; sourceTree = "<group>"; };
+		11DC99121D858D7100F96916 /* MCSession+Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MCSession+Utilities.m"; sourceTree = "<group>"; };
+		11DC99151D85940B00F96916 /* 0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 0.png; sourceTree = "<group>"; };
+		11DC99171D85940B00F96916 /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2.png; sourceTree = "<group>"; };
+		11DC991B1D85A71D00F96916 /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,15 +61,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		112764431D84B94E00F408D7 /* Categories */ = {
-			isa = PBXGroup;
-			children = (
-				112764441D84B96400F408D7 /* NSString+Utilities.h */,
-				112764451D84B96400F408D7 /* NSString+Utilities.m */,
-			);
-			path = Categories;
-			sourceTree = "<group>";
-		};
 		11D31D811D834DDD008168CA = {
 			isa = PBXGroup;
 			children = (
@@ -79,8 +80,7 @@
 		11D31D8C1D834DDD008168CA /* BluetoothBackupDemo */ = {
 			isa = PBXGroup;
 			children = (
-				11D31DAC1D835C57008168CA /* Common */,
-				11D31DA81D8359E2008168CA /* BBSConnectionManager */,
+				11DC99021D85891700F96916 /* BBS */,
 				11D31D931D834DDD008168CA /* BBSClientViewController.h */,
 				11D31D941D834DDD008168CA /* BBSClientViewController.m */,
 				11D31D961D834DDD008168CA /* BBSServerViewController.h */,
@@ -92,6 +92,7 @@
 				11D31D9E1D834DDD008168CA /* LaunchScreen.storyboard */,
 				11D31DA11D834DDD008168CA /* Info.plist */,
 				11D31D8D1D834DDD008168CA /* Supporting Files */,
+				11DC99141D85940B00F96916 /* Resources */,
 			);
 			path = BluetoothBackupDemo;
 			sourceTree = "<group>";
@@ -104,23 +105,38 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		11D31DA81D8359E2008168CA /* BBSConnectionManager */ = {
+		11DC99021D85891700F96916 /* BBS */ = {
 			isa = PBXGroup;
 			children = (
-				11D31DA91D8359F7008168CA /* BBSConnectionManager.h */,
-				11D31DAA1D8359F7008168CA /* BBSConnectionManager.m */,
+				11DC99101D858A7000F96916 /* BBSConstants.h */,
+				11DC99031D85891700F96916 /* BBSMulticastSender.h */,
+				11DC99041D85891700F96916 /* BBSMulticastSender.m */,
+				11DC99051D85891700F96916 /* Categories */,
+				11DC990A1D85895E00F96916 /* BBSAdvertiser.h */,
+				11DC990B1D85895E00F96916 /* BBSAdvertiser.m */,
+				11DC990D1D85899E00F96916 /* BBSBrowser.h */,
+				11DC990E1D85899E00F96916 /* BBSBrowser.m */,
 			);
-			path = BBSConnectionManager;
+			path = BBS;
 			sourceTree = "<group>";
 		};
-		11D31DAC1D835C57008168CA /* Common */ = {
+		11DC99051D85891700F96916 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
-				112764431D84B94E00F408D7 /* Categories */,
-				11D31DAD1D835C75008168CA /* BBSMulticastSender.h */,
-				11D31DAE1D835C75008168CA /* BBSMulticastSender.m */,
+				11DC99111D858D7100F96916 /* MCSession+Utilities.h */,
+				11DC99121D858D7100F96916 /* MCSession+Utilities.m */,
 			);
-			path = Common;
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		11DC99141D85940B00F96916 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				11DC99151D85940B00F96916 /* 0.png */,
+				11DC991B1D85A71D00F96916 /* 1.png */,
+				11DC99171D85940B00F96916 /* 2.png */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -181,9 +197,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11DC991A1D85940B00F96916 /* 2.png in Resources */,
+				11DC99181D85940B00F96916 /* 0.png in Resources */,
 				11D31DA01D834DDD008168CA /* LaunchScreen.storyboard in Resources */,
 				11D31D9D1D834DDD008168CA /* Assets.xcassets in Resources */,
 				11D31D9B1D834DDD008168CA /* Main.storyboard in Resources */,
+				11DC991C1D85A71D00F96916 /* 1.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -196,11 +215,12 @@
 			files = (
 				11D31D981D834DDD008168CA /* BBSServerViewController.m in Sources */,
 				11D31D921D834DDD008168CA /* BBSAppDelegate.m in Sources */,
-				11D31DAB1D8359F7008168CA /* BBSConnectionManager.m in Sources */,
+				11DC990C1D85895E00F96916 /* BBSAdvertiser.m in Sources */,
+				11DC990F1D85899E00F96916 /* BBSBrowser.m in Sources */,
+				11DC99131D858D7100F96916 /* MCSession+Utilities.m in Sources */,
 				11D31D951D834DDD008168CA /* BBSClientViewController.m in Sources */,
 				11D31D8F1D834DDD008168CA /* main.m in Sources */,
-				112764461D84B96400F408D7 /* NSString+Utilities.m in Sources */,
-				11D31DAF1D835C75008168CA /* BBSMulticastSender.m in Sources */,
+				11DC99081D85891700F96916 /* BBSMulticastSender.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

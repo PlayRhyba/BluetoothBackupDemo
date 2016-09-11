@@ -8,13 +8,13 @@
 
 
 #import "BBSServerViewController.h"
-#import "BBSConnectionManager.h"
+#import "BBSAdvertiser.h"
 
 
 static NSString * const kCellReuseIdentifier = @"_cell";
 
 
-@interface BBSServerViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface BBSServerViewController () <UITableViewDataSource, UITableViewDelegate, BBSAdvertiserDelegate>
 
 @property (nonatomic, weak) IBOutlet UIView *statusView;
 @property (nonatomic, weak) IBOutlet UIButton *startButton;
@@ -49,7 +49,7 @@ static NSString * const kCellReuseIdentifier = @"_cell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [[BBSConnectionManager sharedInstance]addDelegate:self];
+    [[BBSAdvertiser sharedInstance]addDelegate:self];
 }
 
 
@@ -60,7 +60,7 @@ static NSString * const kCellReuseIdentifier = @"_cell";
 
 
 - (void)dealloc {
-    [[BBSConnectionManager sharedInstance]removeDelegate:self];
+    [[BBSAdvertiser sharedInstance]removeDelegate:self];
 }
 
 
@@ -68,12 +68,12 @@ static NSString * const kCellReuseIdentifier = @"_cell";
 
 
 - (IBAction)startButtonClicked:(UIButton *)sender {
-    [[BBSConnectionManager sharedInstance]startServer];
+    [[BBSAdvertiser sharedInstance]start];
 }
 
 
 - (IBAction)stopButtonClicked:(UIButton *)sender {
-    [[BBSConnectionManager sharedInstance]stopServer];
+    [[BBSAdvertiser sharedInstance]stop];
 }
 
 
@@ -98,17 +98,17 @@ static NSString * const kCellReuseIdentifier = @"_cell";
 }
 
 
-#pragma mark - BBSConnectionManagerDelegate
+#pragma mark - BBSAdvertiserDelegate
 
 
-- (void)connectionManager:(BBSConnectionManager *)manager
-           didChangeState:(MCSessionState)state
-            serverSession:(MCSession *)session
-                     peer:(MCPeerID *)peerID {
+- (void)advertiser:(BBSAdvertiser *)advertiser
+    didChangeState:(MCSessionState)state
+           session:(MCSession *)session
+              peer:(MCPeerID *)peerID {
     if (state != MCSessionStateConnecting) {
         [self.connectedDevices removeAllObjects];
         
-        if (state == MCSessionStateNotConnected) {
+        if (state == MCSessionStateConnected) {
             for (MCPeerID *peer in session.connectedPeers) {
                 [self.connectedDevices addObject:peer.displayName];
             }
