@@ -11,5 +11,6 @@
 #define BBSConstants_h
 
 static NSString * const BBSConstantsServiceType = @"backup-demo";
+typedef void (^BBSProgressBlock)(double progress);
 
 #endif /* BBSConstants_h */

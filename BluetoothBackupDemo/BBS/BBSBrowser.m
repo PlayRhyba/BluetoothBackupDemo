@@ -9,15 +9,16 @@
 
 #import "BBSBrowser.h"
 #import "MCSession+Utilities.h"
-#import "BBSConstants.h"
+
+
+static NSString * const kFractionCompletedKeyPath = @"fractionCompleted";
 
 
 @interface BBSBrowser () <MCSessionDelegate, MCBrowserViewControllerDelegate>
 
 @property (nonatomic, strong) MCBrowserViewController *browserVC;
 @property (nonatomic, strong) MCSession *clientSession;
-
-- (void)dismissBrowser;
+@property (nonatomic, copy) BBSProgressBlock backupUploadingProgressBlock;
 
 @end
 
@@ -54,25 +55,65 @@
 
 
 - (void)disconnect {
-    [self dismissBrowser];
+    [self dismissBrowserViewController];
     
     [_clientSession disconnect];
     self.clientSession = nil;
 }
 
 
+- (BOOL)hasConnectedPeers {
+    return _clientSession.connectedPeers.count > 0;
+}
+
+
+- (void)dismissBrowserViewController {
+    [_browserVC dismissViewControllerAnimated:YES completion:nil];
+}
+
+
 - (void)sendResourceAtURL:(NSURL *)resourceURL
         completionHandler:(void(^)(NSError *))completion
-          progressHandler:(void(^)(float progress))progress {
+          progressHandler:(BBSProgressBlock)progress {
+    __typeof (self) __weak weakSelf = self;
+    
     NSProgress *p = [_clientSession sendResourceAtURL:resourceURL
                                              withName:resourceURL.absoluteString.lastPathComponent
                                                toPeer:_clientSession.connectedPeers.firstObject
-                                withCompletionHandler:completion];
-    
-    
-    //TODO: Track progress
-    
-    
+                                withCompletionHandler:^(NSError * _Nullable error) {
+                                    weakSelf.backupUploadingProgressBlock = nil;
+                                    
+                                    dispatch_async(dispatch_get_main_queue(), ^{
+                                        if (completion) {
+                                            completion(error);
+                                        }
+                                    });
+                                }];
+    if (progress) {
+        self.backupUploadingProgressBlock = progress;
+        
+        [p addObserver:self
+            forKeyPath:kFractionCompletedKeyPath
+               options:NSKeyValueObservingOptionNew
+               context:nil];
+    }
+}
+
+
+- (void)requestBackupsList {
+    if ([self hasConnectedPeers]) {
+        BBSCommand *command = [BBSCommand backupsListRequestCommand];
+        
+        NSError *error = nil;
+        
+        [_clientSession sendData:[command data]
+                         toPeers:_clientSession.connectedPeers
+                        withMode:MCSessionSendDataReliable
+                           error:&error];
+        if (error) {
+            NSLog(@"REQUEST BUCKUPS LIST ERROR: %@", error.localizedDescription);
+        }
+    }
 }
 
 
@@ -93,6 +134,21 @@
 
 
 - (void)session:(MCSession *)session didReceiveData:(NSData *)data fromPeer:(MCPeerID *)peerID {
+    id obj = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+    
+    if (obj && [obj isKindOfClass:[BBSCommand class]]) {
+        BBSCommand *command = (BBSCommand *)obj;
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            NSLog(@"BROWSER RECEIVED COMMAND WITH NAME: %@, PAYLOAD: %@", command.name, command.payload);
+            
+            for (id<BBSBrowserDelegate> delegate in self.delegates) {
+                if ([delegate respondsToSelector:@selector(browser:didReceiveCommand:session:peer:)]) {
+                    [delegate browser:self didReceiveCommand:command session:session peer:peerID];
+                }
+            }
+        });
+    }
     
 }
 
@@ -122,20 +178,31 @@
 
 
 - (void)browserViewControllerDidFinish:(MCBrowserViewController *)browserViewController {
-    [self dismissBrowser];
+    [self dismissBrowserViewController];
 }
 
 
 - (void)browserViewControllerWasCancelled:(MCBrowserViewController *)browserViewController {
-    [self dismissBrowser];
+    [self dismissBrowserViewController];
 }
 
 
-#pragma mark - Internal Logic
+#pragma mark - KVO
 
 
-- (void)dismissBrowser {
-    [_browserVC dismissViewControllerAnimated:YES completion:nil];
+- (void)observeValueForKeyPath:(NSString *)keyPath
+                      ofObject:(id)object
+                        change:(NSDictionary<NSString *,id> *)change
+                       context:(void *)context {
+    if (keyPath == kFractionCompletedKeyPath) {
+        NSProgress *progress = (NSProgress *)object;
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (_backupUploadingProgressBlock) {
+                _backupUploadingProgressBlock(progress.fractionCompleted);
+            }
+        });
+    }
 }
 
 @end

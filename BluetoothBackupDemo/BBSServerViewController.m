@@ -11,9 +11,6 @@
 #import "BBSAdvertiser.h"
 
 
-static NSString * const kCellReuseIdentifier = @"_cell";
-
-
 @interface BBSServerViewController () <UITableViewDataSource, UITableViewDelegate, BBSAdvertiserDelegate>
 
 @property (nonatomic, weak) IBOutlet UIView *statusView;
@@ -86,10 +83,10 @@ static NSString * const kCellReuseIdentifier = @"_cell";
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kCellReuseIdentifier];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"_cell"];
     
     if (cell == nil) {
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kCellReuseIdentifier];
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"_cell"];
     }
     
     cell.textLabel.text = self.connectedDevices[indexPath.row];

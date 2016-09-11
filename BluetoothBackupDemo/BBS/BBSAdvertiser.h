@@ -12,12 +12,20 @@
 
 
 @class BBSAdvertiser;
+@class BBSCommand;
 
 
 @protocol BBSAdvertiserDelegate <NSObject>
 
+@optional
+
 - (void)advertiser:(BBSAdvertiser *)advertiser
     didChangeState:(MCSessionState)state
+           session:(MCSession *)session
+              peer:(MCPeerID *)peerID;
+
+- (void)advertiser:(BBSAdvertiser *)advertiser
+ didReceiveCommand:(BBSCommand *)command
            session:(MCSession *)session
               peer:(MCPeerID *)peerID;
 @end
@@ -28,5 +36,6 @@
 + (instancetype)sharedInstance;
 - (void)start;
 - (void)stop;
+- (BOOL)hasConnectedPeers;
 
 @end

@@ -9,6 +9,8 @@
 
 #import "BBSMulticastSender.h"
 #import <MultipeerConnectivity/MultipeerConnectivity.h>
+#import "BBSConstants.h"
+#import "BBSCommand.h"
 
 
 @class BBSBrowser;
@@ -16,10 +18,17 @@
 
 @protocol BBSBrowserDelegate <NSObject>
 
+@optional
+
 - (void)browser:(BBSBrowser *)browser
  didChangeState:(MCSessionState)state
         session:(MCSession *)session
            peer:(MCPeerID *)peerID;
+
+- (void)   browser:(BBSBrowser *)advertiser
+ didReceiveCommand:(BBSCommand *)command
+           session:(MCSession *)session
+              peer:(MCPeerID *)peerID;
 @end
 
 
@@ -27,9 +36,14 @@
 
 + (instancetype)sharedInstance;
 - (void)browseWithViewController:(UIViewController *)vc;
+- (void)dismissBrowserViewController;
 - (void)disconnect;
+- (BOOL)hasConnectedPeers;
 
 - (void)sendResourceAtURL:(NSURL *)resourceURL
         completionHandler:(void(^)(NSError *))completion
-          progressHandler:(void(^)(float progress))progress;
+          progressHandler:(BBSProgressBlock)progress;
+
+- (void)requestBackupsList;
+
 @end

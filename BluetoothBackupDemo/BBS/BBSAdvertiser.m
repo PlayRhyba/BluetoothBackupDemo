@@ -10,6 +10,7 @@
 #import "BBSAdvertiser.h"
 #import "MCSession+Utilities.h"
 #import "BBSConstants.h"
+#import "BBSCommand.h"
 
 
 @interface BBSAdvertiser () <MCSessionDelegate>
@@ -18,6 +19,9 @@
 
 - (NSString *)backupDirectoryPath;
 
+- (void)processCommand:(BBSCommand *)command
+           withSession:(MCSession *)session
+              fromPeer:(MCPeerID *)peer;
 @end
 
 
@@ -59,6 +63,11 @@
 }
 
 
+- (BOOL)hasConnectedPeers {
+    return _advertiser.session.connectedPeers > 0;
+}
+
+
 #pragma mark - MCSessionDelegate
 
 
@@ -76,7 +85,23 @@
 
 
 - (void)session:(MCSession *)session didReceiveData:(NSData *)data fromPeer:(MCPeerID *)peerID {
+    id obj = [NSKeyedUnarchiver unarchiveObjectWithData:data];
     
+    if (obj && [obj isKindOfClass:[BBSCommand class]]) {
+        BBSCommand *command = (BBSCommand *)obj;
+        
+        [self processCommand:command withSession:session fromPeer:peerID];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            NSLog(@"ADVERTISER RECEIVED COMMAND WITH NAME: %@, PAYLOAD: %@", command.name, command.payload);
+            
+            for (id<BBSAdvertiserDelegate> delegate in self.delegates) {
+                if ([delegate respondsToSelector:@selector(advertiser:didReceiveCommand:session:peer:)]) {
+                    [delegate advertiser:self didReceiveCommand:command session:session peer:peerID];
+                }
+            }
+        });
+    }
 }
 
 
@@ -101,11 +126,23 @@
                           withError:(nullable NSError *)error {
     NSLog(@"ADVERTISER HAS FINISHED RECEIVING RESOURCE WITH NAME: %@. ERROR: %@", resourceName, error.localizedDescription);
     
-    NSString *destinationPath = [[self backupDirectoryPath]stringByAppendingPathComponent:resourceName];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
+    dateFormatter.dateFormat = @"dd-MM-yyyy_HH:mm:ss";
+    NSString *fileName = [NSString stringWithFormat:@"backup_%@", [dateFormatter stringFromDate:[NSDate date]]];
     
-    [[NSFileManager defaultManager]copyItemAtURL:localURL
-                                           toURL:[NSURL fileURLWithPath:destinationPath]
-                                           error:nil];
+    NSString *destinationPath = [[self backupDirectoryPath]stringByAppendingPathComponent:fileName];
+    
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    
+    if ([fileManager fileExistsAtPath:destinationPath]) {
+        [fileManager removeItemAtPath:destinationPath error:nil];
+    }
+    
+    if ([fileManager copyItemAtURL:localURL
+                             toURL:[NSURL fileURLWithPath:destinationPath]
+                             error:nil]) {
+        NSLog(@"BACKUP HAS BEEN SAVED AT PATH: %@", destinationPath);
+    }
 }
 
 
@@ -126,6 +163,31 @@
     }
     
     return path;
+}
+
+
+- (void)processCommand:(BBSCommand *)command
+           withSession:(MCSession *)session
+              fromPeer:(MCPeerID *)peer {
+    if ([command.name isEqualToString:BBSCommandBackupsListRequest]) {
+        NSArray<NSString *> *files = [[NSFileManager defaultManager]contentsOfDirectoryAtPath:[self backupDirectoryPath]
+                                                                                        error:nil];
+        
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"self BEGINSWITH 'backup'"];
+        files = [files filteredArrayUsingPredicate:predicate];
+        
+        BBSCommand *command = [BBSCommand backupsListResponseCommandWithFileNames:files];
+        
+        NSError *error = nil;
+        
+        [_advertiser.session sendData:[command data]
+                              toPeers:_advertiser.session.connectedPeers
+                             withMode:MCSessionSendDataReliable
+                                error:&error];
+        if (error) {
+            NSLog(@"SEND BACKUP LIST RESPONSE ERROR: %@", error.localizedDescription);
+        }
+    }
 }
 
 @end

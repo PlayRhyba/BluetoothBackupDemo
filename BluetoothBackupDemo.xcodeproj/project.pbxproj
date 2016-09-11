@@ -21,9 +21,13 @@
 		11DC99181D85940B00F96916 /* 0.png in Resources */ = {isa = PBXBuildFile; fileRef = 11DC99151D85940B00F96916 /* 0.png */; };
 		11DC991A1D85940B00F96916 /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 11DC99171D85940B00F96916 /* 2.png */; };
 		11DC991C1D85A71D00F96916 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 11DC991B1D85A71D00F96916 /* 1.png */; };
+		11DC991E1D85F71900F96916 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 11DC991D1D85F71900F96916 /* Podfile */; };
+		11DC99211D86075800F96916 /* BBSCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 11DC99201D86075800F96916 /* BBSCommand.m */; };
+		3791A448261FB46432814225 /* libPods-BluetoothBackupDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C28AE19CBA730EFF6C6819E /* libPods-BluetoothBackupDemo.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		030E286AB8D093DE6AD1EE6D /* Pods-BluetoothBackupDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BluetoothBackupDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BluetoothBackupDemo/Pods-BluetoothBackupDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		11D31D8A1D834DDD008168CA /* BluetoothBackupDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BluetoothBackupDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		11D31D8E1D834DDD008168CA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		11D31D901D834DDD008168CA /* BBSAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBSAppDelegate.h; sourceTree = "<group>"; };
@@ -48,6 +52,11 @@
 		11DC99151D85940B00F96916 /* 0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 0.png; sourceTree = "<group>"; };
 		11DC99171D85940B00F96916 /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2.png; sourceTree = "<group>"; };
 		11DC991B1D85A71D00F96916 /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
+		11DC991D1D85F71900F96916 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		11DC991F1D86075800F96916 /* BBSCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBSCommand.h; sourceTree = "<group>"; };
+		11DC99201D86075800F96916 /* BBSCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBSCommand.m; sourceTree = "<group>"; };
+		2C28AE19CBA730EFF6C6819E /* libPods-BluetoothBackupDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BluetoothBackupDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D3FF57BB51DB8D992D27BF04 /* Pods-BluetoothBackupDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BluetoothBackupDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-BluetoothBackupDemo/Pods-BluetoothBackupDemo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3791A448261FB46432814225 /* libPods-BluetoothBackupDemo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,6 +76,9 @@
 			children = (
 				11D31D8C1D834DDD008168CA /* BluetoothBackupDemo */,
 				11D31D8B1D834DDD008168CA /* Products */,
+				11DC991D1D85F71900F96916 /* Podfile */,
+				38621C9EFC426DF6DF2641D9 /* Pods */,
+				DEB44B0C97B51CCFC409FEDE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -116,6 +129,8 @@
 				11DC990B1D85895E00F96916 /* BBSAdvertiser.m */,
 				11DC990D1D85899E00F96916 /* BBSBrowser.h */,
 				11DC990E1D85899E00F96916 /* BBSBrowser.m */,
+				11DC991F1D86075800F96916 /* BBSCommand.h */,
+				11DC99201D86075800F96916 /* BBSCommand.m */,
 			);
 			path = BBS;
 			sourceTree = "<group>";
@@ -139,6 +154,23 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		38621C9EFC426DF6DF2641D9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				030E286AB8D093DE6AD1EE6D /* Pods-BluetoothBackupDemo.debug.xcconfig */,
+				D3FF57BB51DB8D992D27BF04 /* Pods-BluetoothBackupDemo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		DEB44B0C97B51CCFC409FEDE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2C28AE19CBA730EFF6C6819E /* libPods-BluetoothBackupDemo.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -146,9 +178,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 11D31DA41D834DDE008168CA /* Build configuration list for PBXNativeTarget "BluetoothBackupDemo" */;
 			buildPhases = (
+				8667EB8C9A7E4DF118BEC337 /* [CP] Check Pods Manifest.lock */,
 				11D31D861D834DDD008168CA /* Sources */,
 				11D31D871D834DDD008168CA /* Frameworks */,
 				11D31D881D834DDD008168CA /* Resources */,
+				84137A7ED547EACDF871FAA7 /* [CP] Embed Pods Frameworks */,
+				CFE5EB18D072C4E0CAE0F59A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -202,11 +237,60 @@
 				11D31DA01D834DDD008168CA /* LaunchScreen.storyboard in Resources */,
 				11D31D9D1D834DDD008168CA /* Assets.xcassets in Resources */,
 				11D31D9B1D834DDD008168CA /* Main.storyboard in Resources */,
+				11DC991E1D85F71900F96916 /* Podfile in Resources */,
 				11DC991C1D85A71D00F96916 /* 1.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		84137A7ED547EACDF871FAA7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BluetoothBackupDemo/Pods-BluetoothBackupDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8667EB8C9A7E4DF118BEC337 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		CFE5EB18D072C4E0CAE0F59A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BluetoothBackupDemo/Pods-BluetoothBackupDemo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		11D31D861D834DDD008168CA /* Sources */ = {
@@ -219,6 +303,7 @@
 				11DC990F1D85899E00F96916 /* BBSBrowser.m in Sources */,
 				11DC99131D858D7100F96916 /* MCSession+Utilities.m in Sources */,
 				11D31D951D834DDD008168CA /* BBSClientViewController.m in Sources */,
+				11DC99211D86075800F96916 /* BBSCommand.m in Sources */,
 				11D31D8F1D834DDD008168CA /* main.m in Sources */,
 				11DC99081D85891700F96916 /* BBSMulticastSender.m in Sources */,
 			);
@@ -328,6 +413,7 @@
 		};
 		11D31DA51D834DDE008168CA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 030E286AB8D093DE6AD1EE6D /* Pods-BluetoothBackupDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = BluetoothBackupDemo/Info.plist;
@@ -339,6 +425,7 @@
 		};
 		11D31DA61D834DDE008168CA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D3FF57BB51DB8D992D27BF04 /* Pods-BluetoothBackupDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = BluetoothBackupDemo/Info.plist;

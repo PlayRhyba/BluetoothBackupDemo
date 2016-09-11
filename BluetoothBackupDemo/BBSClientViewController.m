@@ -9,6 +9,7 @@
 
 #import "BBSClientViewController.h"
 #import "BBSBrowser.h"
+#import <SVProgressHUD/SVProgressHUD.h>
 
 
 @interface BBSClientViewController () <UITableViewDataSource, UITableViewDelegate, BBSBrowserDelegate>
@@ -19,6 +20,7 @@
 @property (nonatomic, weak) IBOutlet UIButton *requestBackupsListButton;
 @property (nonatomic, weak) IBOutlet UIButton *sendBackupButton;
 @property (nonatomic, weak) IBOutlet UITableView *backupsListTableView;
+@property (nonatomic, strong) NSMutableArray *backupsList;
 
 - (IBAction)connectButtonClicked:(UIButton *)sender;
 - (IBAction)disconnectButtonClicked:(UIButton *)sender;
@@ -30,6 +32,18 @@
 
 
 @implementation BBSClientViewController
+
+
+#pragma mark - Getters/Setters
+
+
+- (NSMutableArray *)backupsList {
+    if (_backupsList == nil) {
+        _backupsList = [NSMutableArray array];
+    }
+    
+    return _backupsList;
+}
 
 
 #pragma mark - Lifecycle Methods
@@ -66,21 +80,38 @@
 
 
 - (IBAction)requestBackupsListButtonClicked:(UIButton *)sender {
+    BBSBrowser *browser = [BBSBrowser sharedInstance];
     
+    if ([browser hasConnectedPeers]) {
+        [browser requestBackupsList];
+    }
 }
 
 
 - (IBAction)sendBackupButtonClicked:(UIButton *)sender {
-    NSInteger number = arc4random_uniform(3);
-    NSString *bundlePath = [[NSBundle mainBundle]pathForResource:@(number).stringValue ofType:@"png"];
+    BBSBrowser *browser = [BBSBrowser sharedInstance];
     
-    if (bundlePath) {
-        [[BBSBrowser sharedInstance]sendResourceAtURL:[NSURL fileURLWithPath:bundlePath]
-                                    completionHandler:^(NSError *error) {
-                                        NSLog(@"");
-                                    } progressHandler:^(float progress) {
-                                        
-                                    }];
+    if ([browser hasConnectedPeers]) {
+        NSInteger number = arc4random_uniform(3);
+        NSString *bundlePath = [[NSBundle mainBundle]pathForResource:@(number).stringValue ofType:@"png"];
+        
+        if (bundlePath) {
+            NSString *status = @"Uploading backup...";
+            
+            [SVProgressHUD showWithStatus:status];
+            
+            [[BBSBrowser sharedInstance]sendResourceAtURL:[NSURL fileURLWithPath:bundlePath]
+                                        completionHandler:^(NSError *error) {
+                                            if (error) {
+                                                [SVProgressHUD showErrorWithStatus:error.localizedDescription];
+                                            }
+                                            else {
+                                                [SVProgressHUD dismiss];
+                                            }
+                                        } progressHandler:^(double progress) {
+                                            [SVProgressHUD showProgress:progress status:status];
+                                        }];
+        }
     }
 }
 
@@ -89,12 +120,20 @@
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 0;
+    return self.backupsList.count;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return nil;
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"_cell"];
+    
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"_cell"];
+    }
+    
+    cell.textLabel.text = self.backupsList[indexPath.row];
+    
+    return cell;
 }
 
 
@@ -110,7 +149,21 @@
  didChangeState:(MCSessionState)state
         session:(MCSession *)session
            peer:(MCPeerID *)peerID {
-    
+    if (state == MCSessionStateConnected) {
+        [[BBSBrowser sharedInstance]dismissBrowserViewController];
+    }
+}
+
+
+- (void)   browser:(BBSBrowser *)advertiser
+ didReceiveCommand:(BBSCommand *)command
+           session:(MCSession *)session
+              peer:(MCPeerID *)peerID {
+    if ([command.name isEqualToString:BBSCommandBackupsListResponse]) {
+        [self.backupsList removeAllObjects];
+        [self.backupsList addObjectsFromArray:(NSArray *)command.payload];
+        [_backupsListTableView reloadData];
+    }
 }
 
 
