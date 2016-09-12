@@ -37,5 +37,6 @@
 - (void)start;
 - (void)stop;
 - (BOOL)hasConnectedPeers;
+- (BOOL)isStarted;
 
 @end

@@ -13,6 +13,7 @@
 #import <UIAlertController+Blocks/UIAlertController+Blocks.h>
 #import "BBSFileInfo.h"
 #import "BBSPreviewViewController.h"
+#import "MCSession+Utilities.h"
 
 
 @interface BBSClientViewController () <UITableViewDataSource, UITableViewDelegate, BBSBrowserDelegate>
@@ -95,7 +96,7 @@
     BBSBrowser *browser = [BBSBrowser sharedInstance];
     
     if ([browser hasConnectedPeers]) {
-        NSInteger number = arc4random_uniform(3);
+        NSInteger number = arc4random_uniform(4);
         NSString *bundlePath = [[NSBundle mainBundle]pathForResource:@(number).stringValue ofType:@"png"];
         
         if (bundlePath) {
@@ -171,6 +172,8 @@
     if (state == MCSessionStateConnected) {
         [[BBSBrowser sharedInstance]dismissBrowserViewController];
     }
+    
+    [self adjustUIState];
 }
 
 
@@ -221,7 +224,26 @@
 
 
 - (void)adjustUIState {
+    MCSessionState sessionState = [BBSBrowser sharedInstance].sessionState;
     
+    switch (sessionState) {
+        case MCSessionStateNotConnected: {
+            _disconnectButton.enabled = _requestBackupsListButton.enabled = _sendBackupButton.enabled = NO;
+            _connectButton.enabled = YES;
+            
+            [self.backupsList removeAllObjects];
+            [_backupsListTableView reloadData];
+            break;
+        }
+        case MCSessionStateConnected: {
+            _disconnectButton.enabled = _requestBackupsListButton.enabled = _sendBackupButton.enabled = YES;
+            _connectButton.enabled = NO;
+            break;
+        }
+        case MCSessionStateConnecting: break;
+    }
+    
+    _statusView.backgroundColor = [MCSession colorWithSessionState:sessionState];
 }
 
 @end

@@ -16,6 +16,7 @@ static NSString * const kFractionCompletedKeyPath = @"fractionCompleted";
 
 @interface BBSBrowser () <MCSessionDelegate, MCBrowserViewControllerDelegate>
 
+@property (nonatomic, readwrite) MCSessionState sessionState;
 @property (nonatomic, strong) MCBrowserViewController *browserVC;
 @property (nonatomic, strong) MCSession *clientSession;
 @property (nonatomic, copy) BBSProgressBlock backupUploadingProgressBlock;
@@ -38,6 +39,15 @@ static NSString * const kFractionCompletedKeyPath = @"fractionCompleted";
     });
     
     return _sharedInstance;
+}
+
+
+- (instancetype)init {
+    if (self = [super init]) {
+        _sessionState = MCSessionStateNotConnected;
+    }
+    
+    return self;
 }
 
 
@@ -139,6 +149,8 @@ static NSString * const kFractionCompletedKeyPath = @"fractionCompleted";
 
 - (void)session:(MCSession *)session peer:(MCPeerID *)peerID didChangeState:(MCSessionState)state {
     NSLog(@"BROWSER: SESSION STATE CHANGED TO %@", [MCSession stringWithSessionState:state]);
+    
+    self.sessionState = state;
     
     dispatch_async(dispatch_get_main_queue(), ^{
         for (id<BBSBrowserDelegate> delegate in self.delegates) {
