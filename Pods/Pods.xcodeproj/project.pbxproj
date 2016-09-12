@@ -7,71 +7,113 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1C50BE4B973CB700362107E524A41DD5 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB0B5C34B0704CE42DB8ACE437DB6B71 /* QuartzCore.framework */; };
-		2464FEEB4852EDC8977AAFE661F76C5E /* Pods-BluetoothBackupDemo-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F5FB14023258DC3577FA40316DE6DB5C /* Pods-BluetoothBackupDemo-dummy.m */; };
-		457A0C4F3DB0CF5C8799BA622771FC9A /* SVProgressHUD.h in Headers */ = {isa = PBXBuildFile; fileRef = 1E500B7D36D549FEA22BCF3A6B9C762C /* SVProgressHUD.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4C013F467A49BDE5F663CDA45C2F893D /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = FC432D25F918708EC07B0A9415C17418 /* SVProgressHUD.m */; };
-		9727DED5C67A0F45D3291932AF04B68E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90AAE8973B935FD4979EEDFB8B1E12AC /* Foundation.framework */; };
-		A7632FEF6935C7B3C9F3D68BE643D253 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90AAE8973B935FD4979EEDFB8B1E12AC /* Foundation.framework */; };
-		E06903ACDC80092E802F2EB880055FFF /* SVIndefiniteAnimatedView.h in Headers */ = {isa = PBXBuildFile; fileRef = 9403E4C607EA488DD690B5A461EDAEC7 /* SVIndefiniteAnimatedView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E8D3DF970930B8AC147F3EC5806F0BF0 /* SVProgressHUD-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = DAD9ACFE696586551D686BDC78E0E155 /* SVProgressHUD-dummy.m */; };
-		EF53A1AB0A3C20FC17404ECBA6BAF734 /* SVIndefiniteAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 045EB3359CFB299F539C645A97238425 /* SVIndefiniteAnimatedView.m */; };
+		2920B29B1C4B3777176170ECD1CAFFF7 /* SVProgressHUD-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F33A21FDBE22A617A5C2FBA85633813E /* SVProgressHUD-dummy.m */; };
+		330B9647E2B227452C5967087846828E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90AAE8973B935FD4979EEDFB8B1E12AC /* Foundation.framework */; };
+		4F31215BB43F3E629AB37FF8C92D3DE3 /* Pods-BluetoothBackupDemo-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F5FB14023258DC3577FA40316DE6DB5C /* Pods-BluetoothBackupDemo-dummy.m */; };
+		4FB8330844248FFE1993D79C142E0AB7 /* UIAlertController+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 69F3A332CE1899023CB0DB9D4FC3FFF4 /* UIAlertController+Blocks.m */; };
+		55E802D42D2C167629D0BC495D214FAF /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F6793660D083D00FA9C3DC8797C0912 /* SVProgressHUD.m */; };
+		60A1DEC54C9845F0D477DF2968561F36 /* SVIndefiniteAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = B13E636DE5EDD2C44EE93B594DE48B4B /* SVIndefiniteAnimatedView.m */; };
+		64AE474731310326288BB7EDF3EF6C73 /* UIAlertController+Blocks-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A0B0D81546CE27F7579A82BBF24A3FED /* UIAlertController+Blocks-dummy.m */; };
+		86E94DDD1FD2165DFF14B82DE3FB2FB7 /* SVIndefiniteAnimatedView.h in Headers */ = {isa = PBXBuildFile; fileRef = A7212A66140F5A2641E1A97121DE87DA /* SVIndefiniteAnimatedView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8728000736DE55A9383DDFA8C383B011 /* SVProgressHUD.h in Headers */ = {isa = PBXBuildFile; fileRef = 7CBCFBC3475D47E1D592A5DBB5E5AF2B /* SVProgressHUD.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		88110F49940EE13350A58FF90075AA4D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90AAE8973B935FD4979EEDFB8B1E12AC /* Foundation.framework */; };
+		BB99A0D02AAAAFA33D24421366AA7B4D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB0B5C34B0704CE42DB8ACE437DB6B71 /* QuartzCore.framework */; };
+		BF8BA870895260B7B6328C486F10932F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90AAE8973B935FD4979EEDFB8B1E12AC /* Foundation.framework */; };
+		DFF648BF71027147ACA0DF5EF0359AF3 /* UIAlertController+Blocks.h in Headers */ = {isa = PBXBuildFile; fileRef = CCCB484A6BCEA049042F71FC7A28AA62 /* UIAlertController+Blocks.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		86D3481F872C865337934150FAF760EC /* PBXContainerItemProxy */ = {
+		94033D63FBC041B82018D54ED3FBD44F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = E49068B72BEF203F7C98AD5DE2ECD175;
+			remoteGlobalIDString = D01139C2F99E8DB2F256A0D7849073FF;
+			remoteInfo = "UIAlertController+Blocks";
+		};
+		BA9EA478A399DADB637C021A99610FDF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2E7241564961412A01E5863AB1CA3A76;
 			remoteInfo = SVProgressHUD;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		045EB3359CFB299F539C645A97238425 /* SVIndefiniteAnimatedView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SVIndefiniteAnimatedView.m; path = SVProgressHUD/SVIndefiniteAnimatedView.m; sourceTree = "<group>"; };
 		15CACBC38562822DDA82138E58DACF77 /* Pods-BluetoothBackupDemo-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-BluetoothBackupDemo-acknowledgements.plist"; sourceTree = "<group>"; };
-		1E500B7D36D549FEA22BCF3A6B9C762C /* SVProgressHUD.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SVProgressHUD.h; path = SVProgressHUD/SVProgressHUD.h; sourceTree = "<group>"; };
-		406DE1DA1240CA800F05104C3685CE26 /* libSVProgressHUD.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSVProgressHUD.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		44ED4E3875FC5999123E844EC7F5D374 /* UIAlertController+Blocks.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "UIAlertController+Blocks.xcconfig"; sourceTree = "<group>"; };
+		4F6793660D083D00FA9C3DC8797C0912 /* SVProgressHUD.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SVProgressHUD.m; path = SVProgressHUD/SVProgressHUD.m; sourceTree = "<group>"; };
 		52135D39F656A6F3B6E956DE7EFB43DF /* Pods-BluetoothBackupDemo-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-BluetoothBackupDemo-resources.sh"; sourceTree = "<group>"; };
-		53772316AE1D11313F287BD0FFF0DE0B /* SVProgressHUD-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SVProgressHUD-prefix.pch"; sourceTree = "<group>"; };
+		680889B6A3076F5B06EF3314F90ACA13 /* SVProgressHUD-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SVProgressHUD-prefix.pch"; sourceTree = "<group>"; };
+		69F3A332CE1899023CB0DB9D4FC3FFF4 /* UIAlertController+Blocks.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIAlertController+Blocks.m"; sourceTree = "<group>"; };
+		7CBCFBC3475D47E1D592A5DBB5E5AF2B /* SVProgressHUD.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SVProgressHUD.h; path = SVProgressHUD/SVProgressHUD.h; sourceTree = "<group>"; };
+		8AFB689080BD5788C52B54D6EB473B78 /* libPods-BluetoothBackupDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BluetoothBackupDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		90AAE8973B935FD4979EEDFB8B1E12AC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		9403E4C607EA488DD690B5A461EDAEC7 /* SVIndefiniteAnimatedView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SVIndefiniteAnimatedView.h; path = SVProgressHUD/SVIndefiniteAnimatedView.h; sourceTree = "<group>"; };
-		99BF0006FF94EB2EE9221FC408A70936 /* SVProgressHUD.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SVProgressHUD.xcconfig; sourceTree = "<group>"; };
-		AAB41D79ED79CB7E049EEF4C90879CE6 /* libPods-BluetoothBackupDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BluetoothBackupDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A0B0D81546CE27F7579A82BBF24A3FED /* UIAlertController+Blocks-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIAlertController+Blocks-dummy.m"; sourceTree = "<group>"; };
+		A25F08373D9127499F70392D3B97F43A /* SVProgressHUD.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = SVProgressHUD.bundle; path = SVProgressHUD/SVProgressHUD.bundle; sourceTree = "<group>"; };
+		A7212A66140F5A2641E1A97121DE87DA /* SVIndefiniteAnimatedView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SVIndefiniteAnimatedView.h; path = SVProgressHUD/SVIndefiniteAnimatedView.h; sourceTree = "<group>"; };
+		AC8780132603B775D6556C0CAB561992 /* SVProgressHUD.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SVProgressHUD.xcconfig; sourceTree = "<group>"; };
+		AD673C999496CD9D212C8FBD8876A42D /* libUIAlertController+Blocks.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libUIAlertController+Blocks.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE10CFD5E89684BACFC25121892D4C04 /* Pods-BluetoothBackupDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-BluetoothBackupDemo.release.xcconfig"; sourceTree = "<group>"; };
+		B13E636DE5EDD2C44EE93B594DE48B4B /* SVIndefiniteAnimatedView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SVIndefiniteAnimatedView.m; path = SVProgressHUD/SVIndefiniteAnimatedView.m; sourceTree = "<group>"; };
 		B44050B1B7FB9945E6DD00DD88DAFA59 /* Pods-BluetoothBackupDemo-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-BluetoothBackupDemo-acknowledgements.markdown"; sourceTree = "<group>"; };
 		C7D74F4966906867C21E7821205944FD /* Pods-BluetoothBackupDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-BluetoothBackupDemo.debug.xcconfig"; sourceTree = "<group>"; };
-		C8C097EC866027B1DDD0FCA58B74B9D8 /* SVProgressHUD.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = SVProgressHUD.bundle; path = SVProgressHUD/SVProgressHUD.bundle; sourceTree = "<group>"; };
-		DAD9ACFE696586551D686BDC78E0E155 /* SVProgressHUD-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SVProgressHUD-dummy.m"; sourceTree = "<group>"; };
+		CCCB484A6BCEA049042F71FC7A28AA62 /* UIAlertController+Blocks.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIAlertController+Blocks.h"; sourceTree = "<group>"; };
+		D14D6722B7F964C1F6DE445E5FE68F78 /* UIAlertController+Blocks-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIAlertController+Blocks-prefix.pch"; sourceTree = "<group>"; };
 		E939237A7BA40278F02E0103A0C70824 /* Pods-BluetoothBackupDemo-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-BluetoothBackupDemo-frameworks.sh"; sourceTree = "<group>"; };
 		EB0B5C34B0704CE42DB8ACE437DB6B71 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
+		F33A21FDBE22A617A5C2FBA85633813E /* SVProgressHUD-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SVProgressHUD-dummy.m"; sourceTree = "<group>"; };
 		F5FB14023258DC3577FA40316DE6DB5C /* Pods-BluetoothBackupDemo-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-BluetoothBackupDemo-dummy.m"; sourceTree = "<group>"; };
-		FC432D25F918708EC07B0A9415C17418 /* SVProgressHUD.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SVProgressHUD.m; path = SVProgressHUD/SVProgressHUD.m; sourceTree = "<group>"; };
+		F68AD7C4EB11C1B1900562DEEA57532B /* libSVProgressHUD.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSVProgressHUD.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		8A31CFE3155C233545D7BF95517AB0B9 /* Frameworks */ = {
+		3CE6B14D19C64C7F15A538CADE350A40 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9727DED5C67A0F45D3291932AF04B68E /* Foundation.framework in Frameworks */,
-				1C50BE4B973CB700362107E524A41DD5 /* QuartzCore.framework in Frameworks */,
+				BF8BA870895260B7B6328C486F10932F /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C4ECA6362F4C5904284779FC4F3E32D3 /* Frameworks */ = {
+		700FE6C5B2933695CD897E0D77BB214F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A7632FEF6935C7B3C9F3D68BE643D253 /* Foundation.framework in Frameworks */,
+				330B9647E2B227452C5967087846828E /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FF96F5B51CE037BCF98E7610F2B9802B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				88110F49940EE13350A58FF90075AA4D /* Foundation.framework in Frameworks */,
+				BB99A0D02AAAAFA33D24421366AA7B4D /* QuartzCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		095859EA8C90146D6386C275F499D790 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A25F08373D9127499F70392D3B97F43A /* SVProgressHUD.bundle */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		15C00F218F9688EB8B7D67E4E0248727 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3B48F2E93D2E5DD1AE1B9A4B1CCC0607 /* SVProgressHUD */,
+				731E9E7C0A45530E0D9F403AF4171B13 /* UIAlertController+Blocks */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		3700B4741BD907AC7748615E8F0A1DC7 /* Pods-BluetoothBackupDemo */ = {
 			isa = PBXGroup;
 			children = (
@@ -95,6 +137,19 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
+		3B48F2E93D2E5DD1AE1B9A4B1CCC0607 /* SVProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				A7212A66140F5A2641E1A97121DE87DA /* SVIndefiniteAnimatedView.h */,
+				B13E636DE5EDD2C44EE93B594DE48B4B /* SVIndefiniteAnimatedView.m */,
+				7CBCFBC3475D47E1D592A5DBB5E5AF2B /* SVProgressHUD.h */,
+				4F6793660D083D00FA9C3DC8797C0912 /* SVProgressHUD.m */,
+				095859EA8C90146D6386C275F499D790 /* Resources */,
+				E1DCE7FF53CAB5F972275F6151898968 /* Support Files */,
+			);
+			path = SVProgressHUD;
+			sourceTree = "<group>";
+		};
 		433CD3331B6C3787F473C941B61FC68F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -103,12 +158,35 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		4C96B5DF97ABA8B050EFA75AA8C3091A /* Resources */ = {
+		4FE2F5B385471D1EB4BDBCD91AE6C816 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				C8C097EC866027B1DDD0FCA58B74B9D8 /* SVProgressHUD.bundle */,
+				44ED4E3875FC5999123E844EC7F5D374 /* UIAlertController+Blocks.xcconfig */,
+				A0B0D81546CE27F7579A82BBF24A3FED /* UIAlertController+Blocks-dummy.m */,
+				D14D6722B7F964C1F6DE445E5FE68F78 /* UIAlertController+Blocks-prefix.pch */,
 			);
-			name = Resources;
+			name = "Support Files";
+			path = "../Target Support Files/UIAlertController+Blocks";
+			sourceTree = "<group>";
+		};
+		731E9E7C0A45530E0D9F403AF4171B13 /* UIAlertController+Blocks */ = {
+			isa = PBXGroup;
+			children = (
+				CCCB484A6BCEA049042F71FC7A28AA62 /* UIAlertController+Blocks.h */,
+				69F3A332CE1899023CB0DB9D4FC3FFF4 /* UIAlertController+Blocks.m */,
+				4FE2F5B385471D1EB4BDBCD91AE6C816 /* Support Files */,
+			);
+			path = "UIAlertController+Blocks";
+			sourceTree = "<group>";
+		};
+		7B65CF6FFE344EDDFBE875B0D3BD50D2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8AFB689080BD5788C52B54D6EB473B78 /* libPods-BluetoothBackupDemo.a */,
+				F68AD7C4EB11C1B1900562DEEA57532B /* libSVProgressHUD.a */,
+				AD673C999496CD9D212C8FBD8876A42D /* libUIAlertController+Blocks.a */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		7DB346D0F39D3F0E887471402A8071AB = {
@@ -116,8 +194,8 @@
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
 				433CD3331B6C3787F473C941B61FC68F /* Frameworks */,
-				E19BB65A0199ECFF4E4340E5D6E62384 /* Pods */,
-				CBD36E95A15F4CBD03501C22D6DDFCF9 /* Products */,
+				15C00F218F9688EB8B7D67E4E0248727 /* Pods */,
+				7B65CF6FFE344EDDFBE875B0D3BD50D2 /* Products */,
 				377EDF51C6A3D9036A768A4E8AC6505C /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
@@ -131,86 +209,47 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		B5A4DE92DE09266F5FD15B30D77C754F /* Support Files */ = {
+		E1DCE7FF53CAB5F972275F6151898968 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				99BF0006FF94EB2EE9221FC408A70936 /* SVProgressHUD.xcconfig */,
-				DAD9ACFE696586551D686BDC78E0E155 /* SVProgressHUD-dummy.m */,
-				53772316AE1D11313F287BD0FFF0DE0B /* SVProgressHUD-prefix.pch */,
+				AC8780132603B775D6556C0CAB561992 /* SVProgressHUD.xcconfig */,
+				F33A21FDBE22A617A5C2FBA85633813E /* SVProgressHUD-dummy.m */,
+				680889B6A3076F5B06EF3314F90ACA13 /* SVProgressHUD-prefix.pch */,
 			);
 			name = "Support Files";
 			path = "../Target Support Files/SVProgressHUD";
 			sourceTree = "<group>";
 		};
-		C7658A07BECE5C8D907215973A461AA5 /* SVProgressHUD */ = {
-			isa = PBXGroup;
-			children = (
-				9403E4C607EA488DD690B5A461EDAEC7 /* SVIndefiniteAnimatedView.h */,
-				045EB3359CFB299F539C645A97238425 /* SVIndefiniteAnimatedView.m */,
-				1E500B7D36D549FEA22BCF3A6B9C762C /* SVProgressHUD.h */,
-				FC432D25F918708EC07B0A9415C17418 /* SVProgressHUD.m */,
-				4C96B5DF97ABA8B050EFA75AA8C3091A /* Resources */,
-				B5A4DE92DE09266F5FD15B30D77C754F /* Support Files */,
-			);
-			path = SVProgressHUD;
-			sourceTree = "<group>";
-		};
-		CBD36E95A15F4CBD03501C22D6DDFCF9 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				AAB41D79ED79CB7E049EEF4C90879CE6 /* libPods-BluetoothBackupDemo.a */,
-				406DE1DA1240CA800F05104C3685CE26 /* libSVProgressHUD.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		E19BB65A0199ECFF4E4340E5D6E62384 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				C7658A07BECE5C8D907215973A461AA5 /* SVProgressHUD */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		08719CFBFAAA47648ADD68EC0BF04C55 /* Headers */ = {
+		B55D52795ADC103815C3144DF777DC6F /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E06903ACDC80092E802F2EB880055FFF /* SVIndefiniteAnimatedView.h in Headers */,
-				457A0C4F3DB0CF5C8799BA622771FC9A /* SVProgressHUD.h in Headers */,
+				DFF648BF71027147ACA0DF5EF0359AF3 /* UIAlertController+Blocks.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E8D66DA65372FBC009D6C06C4488B5F1 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				86E94DDD1FD2165DFF14B82DE3FB2FB7 /* SVIndefiniteAnimatedView.h in Headers */,
+				8728000736DE55A9383DDFA8C383B011 /* SVProgressHUD.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		3F28C4A2F9D0FECF04A55115626F3FD0 /* Pods-BluetoothBackupDemo */ = {
+		2E7241564961412A01E5863AB1CA3A76 /* SVProgressHUD */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 23BBEE0A6AA95656BB322E616DBA6A58 /* Build configuration list for PBXNativeTarget "Pods-BluetoothBackupDemo" */;
+			buildConfigurationList = 6CC36E8F786AC02E7EA342F1B864A279 /* Build configuration list for PBXNativeTarget "SVProgressHUD" */;
 			buildPhases = (
-				DC2FF1E47FF37BC80E02F59F3FC8E50E /* Sources */,
-				C4ECA6362F4C5904284779FC4F3E32D3 /* Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				C07CBF135FB0007A19F33D5E5DA5776D /* PBXTargetDependency */,
-			);
-			name = "Pods-BluetoothBackupDemo";
-			productName = "Pods-BluetoothBackupDemo";
-			productReference = AAB41D79ED79CB7E049EEF4C90879CE6 /* libPods-BluetoothBackupDemo.a */;
-			productType = "com.apple.product-type.library.static";
-		};
-		E49068B72BEF203F7C98AD5DE2ECD175 /* SVProgressHUD */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 35D4AD23F15B7F8160A24A379E30AA76 /* Build configuration list for PBXNativeTarget "SVProgressHUD" */;
-			buildPhases = (
-				2780AB8F5FBBD840EC4D022F72CBEED7 /* Sources */,
-				8A31CFE3155C233545D7BF95517AB0B9 /* Frameworks */,
-				08719CFBFAAA47648ADD68EC0BF04C55 /* Headers */,
+				D055C599BC72ABCFADB883E5F721BCEF /* Sources */,
+				FF96F5B51CE037BCF98E7610F2B9802B /* Frameworks */,
+				E8D66DA65372FBC009D6C06C4488B5F1 /* Headers */,
 			);
 			buildRules = (
 			);
@@ -218,7 +257,42 @@
 			);
 			name = SVProgressHUD;
 			productName = SVProgressHUD;
-			productReference = 406DE1DA1240CA800F05104C3685CE26 /* libSVProgressHUD.a */;
+			productReference = F68AD7C4EB11C1B1900562DEEA57532B /* libSVProgressHUD.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		B5B8588F7F5643C67D886068EEC1D74C /* Pods-BluetoothBackupDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A4670DB81AC5549768105317BB38FEA1 /* Build configuration list for PBXNativeTarget "Pods-BluetoothBackupDemo" */;
+			buildPhases = (
+				B400BC6C18C2D0986CCA499ADC6DBC6C /* Sources */,
+				3CE6B14D19C64C7F15A538CADE350A40 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				557B706B944790BB683C22CDA0D2220E /* PBXTargetDependency */,
+				2D44178416E0CB88D78EFFED4D77B1C5 /* PBXTargetDependency */,
+			);
+			name = "Pods-BluetoothBackupDemo";
+			productName = "Pods-BluetoothBackupDemo";
+			productReference = 8AFB689080BD5788C52B54D6EB473B78 /* libPods-BluetoothBackupDemo.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		D01139C2F99E8DB2F256A0D7849073FF /* UIAlertController+Blocks */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CE1EF4DAD6D5FEB03FEA8E016B948B23 /* Build configuration list for PBXNativeTarget "UIAlertController+Blocks" */;
+			buildPhases = (
+				2795A3B58ADD81F26EFB4506729DF32F /* Sources */,
+				700FE6C5B2933695CD897E0D77BB214F /* Frameworks */,
+				B55D52795ADC103815C3144DF777DC6F /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "UIAlertController+Blocks";
+			productName = "UIAlertController+Blocks";
+			productReference = AD673C999496CD9D212C8FBD8876A42D /* libUIAlertController+Blocks.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
@@ -238,50 +312,108 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = CBD36E95A15F4CBD03501C22D6DDFCF9 /* Products */;
+			productRefGroup = 7B65CF6FFE344EDDFBE875B0D3BD50D2 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				3F28C4A2F9D0FECF04A55115626F3FD0 /* Pods-BluetoothBackupDemo */,
-				E49068B72BEF203F7C98AD5DE2ECD175 /* SVProgressHUD */,
+				B5B8588F7F5643C67D886068EEC1D74C /* Pods-BluetoothBackupDemo */,
+				2E7241564961412A01E5863AB1CA3A76 /* SVProgressHUD */,
+				D01139C2F99E8DB2F256A0D7849073FF /* UIAlertController+Blocks */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		2780AB8F5FBBD840EC4D022F72CBEED7 /* Sources */ = {
+		2795A3B58ADD81F26EFB4506729DF32F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EF53A1AB0A3C20FC17404ECBA6BAF734 /* SVIndefiniteAnimatedView.m in Sources */,
-				E8D3DF970930B8AC147F3EC5806F0BF0 /* SVProgressHUD-dummy.m in Sources */,
-				4C013F467A49BDE5F663CDA45C2F893D /* SVProgressHUD.m in Sources */,
+				64AE474731310326288BB7EDF3EF6C73 /* UIAlertController+Blocks-dummy.m in Sources */,
+				4FB8330844248FFE1993D79C142E0AB7 /* UIAlertController+Blocks.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DC2FF1E47FF37BC80E02F59F3FC8E50E /* Sources */ = {
+		B400BC6C18C2D0986CCA499ADC6DBC6C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2464FEEB4852EDC8977AAFE661F76C5E /* Pods-BluetoothBackupDemo-dummy.m in Sources */,
+				4F31215BB43F3E629AB37FF8C92D3DE3 /* Pods-BluetoothBackupDemo-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D055C599BC72ABCFADB883E5F721BCEF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				60A1DEC54C9845F0D477DF2968561F36 /* SVIndefiniteAnimatedView.m in Sources */,
+				2920B29B1C4B3777176170ECD1CAFFF7 /* SVProgressHUD-dummy.m in Sources */,
+				55E802D42D2C167629D0BC495D214FAF /* SVProgressHUD.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		C07CBF135FB0007A19F33D5E5DA5776D /* PBXTargetDependency */ = {
+		2D44178416E0CB88D78EFFED4D77B1C5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "UIAlertController+Blocks";
+			target = D01139C2F99E8DB2F256A0D7849073FF /* UIAlertController+Blocks */;
+			targetProxy = 94033D63FBC041B82018D54ED3FBD44F /* PBXContainerItemProxy */;
+		};
+		557B706B944790BB683C22CDA0D2220E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = SVProgressHUD;
-			target = E49068B72BEF203F7C98AD5DE2ECD175 /* SVProgressHUD */;
-			targetProxy = 86D3481F872C865337934150FAF760EC /* PBXContainerItemProxy */;
+			target = 2E7241564961412A01E5863AB1CA3A76 /* SVProgressHUD */;
+			targetProxy = BA9EA478A399DADB637C021A99610FDF /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		11ACDD68984F522A3A5DDB7F2B885C8D /* Debug */ = {
+		026E47130EDDF35AA7057116507724FA /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 99BF0006FF94EB2EE9221FC408A70936 /* SVProgressHUD.xcconfig */;
+			baseConfigurationReference = AC8780132603B775D6556C0CAB561992 /* SVProgressHUD.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/SVProgressHUD/SVProgressHUD-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		40FB528D98812A990318BF7B8C3BD3DA /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 44ED4E3875FC5999123E844EC7F5D374 /* UIAlertController+Blocks.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/UIAlertController+Blocks/UIAlertController+Blocks-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		4E269CDF7F1523719E61BF6EA04F7109 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AC8780132603B775D6556C0CAB561992 /* SVProgressHUD.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -295,6 +427,27 @@
 				PRIVATE_HEADERS_FOLDER_PATH = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		83D76E4065819D4E4F5D424754970730 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C7D74F4966906867C21E7821205944FD /* Pods-BluetoothBackupDemo.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 			};
@@ -342,38 +495,17 @@
 			};
 			name = Debug;
 		};
-		AD393705D1DC1153316F4F100453DAF4 /* Debug */ = {
+		DA7E3CC69FF4501BD5ED28A8646C5FE5 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C7D74F4966906867C21E7821205944FD /* Pods-BluetoothBackupDemo.debug.xcconfig */;
+			baseConfigurationReference = 44ED4E3875FC5999123E844EC7F5D374 /* UIAlertController+Blocks.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
-				MACH_O_TYPE = staticlib;
+				GCC_PREFIX_HEADER = "Target Support Files/UIAlertController+Blocks/UIAlertController+Blocks-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		D44D97FF20E1CC686FF5F90FE30833CD /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 99BF0006FF94EB2EE9221FC408A70936 /* SVProgressHUD.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/SVProgressHUD/SVProgressHUD-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
-				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
@@ -382,9 +514,9 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 			};
-			name = Release;
+			name = Debug;
 		};
-		DDEA415A1D1FF4A81DC1F7B54408E42C /* Release */ = {
+		F55F248183F67CDA4E8ED168A667A52C /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = AE10CFD5E89684BACFC25121892D4C04 /* Pods-BluetoothBackupDemo.release.xcconfig */;
 			buildSettings = {
@@ -446,15 +578,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		23BBEE0A6AA95656BB322E616DBA6A58 /* Build configuration list for PBXNativeTarget "Pods-BluetoothBackupDemo" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				AD393705D1DC1153316F4F100453DAF4 /* Debug */,
-				DDEA415A1D1FF4A81DC1F7B54408E42C /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -464,11 +587,29 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		35D4AD23F15B7F8160A24A379E30AA76 /* Build configuration list for PBXNativeTarget "SVProgressHUD" */ = {
+		6CC36E8F786AC02E7EA342F1B864A279 /* Build configuration list for PBXNativeTarget "SVProgressHUD" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				11ACDD68984F522A3A5DDB7F2B885C8D /* Debug */,
-				D44D97FF20E1CC686FF5F90FE30833CD /* Release */,
+				4E269CDF7F1523719E61BF6EA04F7109 /* Debug */,
+				026E47130EDDF35AA7057116507724FA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A4670DB81AC5549768105317BB38FEA1 /* Build configuration list for PBXNativeTarget "Pods-BluetoothBackupDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				83D76E4065819D4E4F5D424754970730 /* Debug */,
+				F55F248183F67CDA4E8ED168A667A52C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CE1EF4DAD6D5FEB03FEA8E016B948B23 /* Build configuration list for PBXNativeTarget "UIAlertController+Blocks" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DA7E3CC69FF4501BD5ED28A8646C5FE5 /* Debug */,
+				40FB528D98812A990318BF7B8C3BD3DA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

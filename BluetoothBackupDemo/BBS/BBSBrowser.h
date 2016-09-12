@@ -25,10 +25,23 @@
         session:(MCSession *)session
            peer:(MCPeerID *)peerID;
 
-- (void)   browser:(BBSBrowser *)advertiser
+- (void)   browser:(BBSBrowser *)browser
  didReceiveCommand:(BBSCommand *)command
            session:(MCSession *)session
               peer:(MCPeerID *)peerID;
+
+- (void)                   browser:(BBSBrowser *)browser
+ didStartReceivingResourceWithName:(NSString *)resourceName
+                       withSession:(MCSession *)session
+                          fromPeer:(MCPeerID *)peerID
+                          progress:(NSProgress *)progress;
+
+- (void)                    browser:(BBSBrowser *)browser
+ didFinishReceivingResourceWithName:(NSString *)resourceName
+                        withSession:(MCSession *)session
+                           fromPeer:(MCPeerID *)peerID
+                              atURL:(NSURL *)localURL
+                          withError:(NSError *)error;
 @end
 
 
@@ -45,5 +58,6 @@
           progressHandler:(BBSProgressBlock)progress;
 
 - (void)requestBackupsList;
+- (void)requestBackupWithFileInfo:(BBSFileInfo *)info;
 
 @end

@@ -9,6 +9,10 @@
 
 extern NSString * const BBSCommandBackupsListRequest;
 extern NSString * const BBSCommandBackupsListResponse;
+extern NSString * const BBSCommandRequestBackup;
+
+
+@class BBSFileInfo;
 
 
 @interface BBSCommand : NSObject <NSCoding>
@@ -17,7 +21,8 @@ extern NSString * const BBSCommandBackupsListResponse;
 @property (nonatomic, strong, readonly) id payload;
 
 + (BBSCommand *)backupsListRequestCommand;
-+ (BBSCommand *)backupsListResponseCommandWithFileNames:(NSArray *)fileNames;
++ (BBSCommand *)backupsListResponseCommandWithFiles:(NSArray <BBSFileInfo *> *)files;
++ (BBSCommand *)requestBackupCommandWithFileInfo:(BBSFileInfo *)info;
 - (instancetype)initWithName:(NSString *)name payload:(id)payload;
 - (NSData *)data;
 

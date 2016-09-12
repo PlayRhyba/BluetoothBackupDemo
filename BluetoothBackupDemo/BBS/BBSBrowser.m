@@ -111,7 +111,24 @@ static NSString * const kFractionCompletedKeyPath = @"fractionCompleted";
                         withMode:MCSessionSendDataReliable
                            error:&error];
         if (error) {
-            NSLog(@"REQUEST BUCKUPS LIST ERROR: %@", error.localizedDescription);
+            NSLog(@"BROWSER: REQUEST BUCKUPS LIST ERROR: %@", error.localizedDescription);
+        }
+    }
+}
+
+
+- (void)requestBackupWithFileInfo:(BBSFileInfo *)info {
+    if ([self hasConnectedPeers]) {
+        BBSCommand *command = [BBSCommand requestBackupCommandWithFileInfo:info];
+        
+        NSError *error = nil;
+        
+        [_clientSession sendData:[command data]
+                         toPeers:_clientSession.connectedPeers
+                        withMode:MCSessionSendDataReliable
+                           error:&error];
+        if (error) {
+            NSLog(@"BROWSER: REQUEST BACKUP ERROR: %@", error.localizedDescription);
         }
     }
 }
@@ -121,9 +138,9 @@ static NSString * const kFractionCompletedKeyPath = @"fractionCompleted";
 
 
 - (void)session:(MCSession *)session peer:(MCPeerID *)peerID didChangeState:(MCSessionState)state {
+    NSLog(@"BROWSER: SESSION STATE CHANGED TO %@", [MCSession stringWithSessionState:state]);
+    
     dispatch_async(dispatch_get_main_queue(), ^{
-        NSLog(@"BROWSER'S SESSION STATE CHANGED TO %@", [MCSession stringWithSessionState:state]);
-        
         for (id<BBSBrowserDelegate> delegate in self.delegates) {
             if ([delegate respondsToSelector:@selector(browser:didChangeState:session:peer:)]) {
                 [delegate browser:self didChangeState:state session:session peer:peerID];
@@ -140,14 +157,14 @@ static NSString * const kFractionCompletedKeyPath = @"fractionCompleted";
         BBSCommand *command = (BBSCommand *)obj;
         
         dispatch_async(dispatch_get_main_queue(), ^{
-            NSLog(@"BROWSER RECEIVED COMMAND WITH NAME: %@, PAYLOAD: %@", command.name, command.payload);
-            
             for (id<BBSBrowserDelegate> delegate in self.delegates) {
                 if ([delegate respondsToSelector:@selector(browser:didReceiveCommand:session:peer:)]) {
                     [delegate browser:self didReceiveCommand:command session:session peer:peerID];
                 }
             }
         });
+        
+        NSLog(@"BROWSER: RECEIVED COMMAND WITH NAME: %@, PAYLOAD: %@", command.name, command.payload);
     }
     
 }
@@ -163,6 +180,19 @@ static NSString * const kFractionCompletedKeyPath = @"fractionCompleted";
   didStartReceivingResourceWithName:(NSString *)resourceName
                            fromPeer:(MCPeerID *)peerID
                        withProgress:(NSProgress *)progress {
+    NSLog(@"BROWSER: START RECEIVING RESOURCE WITH NAME: %@", resourceName);
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        for (id<BBSBrowserDelegate> delegate in self.delegates) {
+            if ([delegate respondsToSelector:@selector(browser:didStartReceivingResourceWithName:withSession:fromPeer:progress:)]) {
+                [delegate browser:self
+didStartReceivingResourceWithName:resourceName
+                      withSession:session
+                         fromPeer:peerID
+                         progress:progress];
+            }
+        }
+    });
 }
 
 
@@ -171,6 +201,20 @@ static NSString * const kFractionCompletedKeyPath = @"fractionCompleted";
                            fromPeer:(MCPeerID *)peerID
                               atURL:(NSURL *)localURL
                           withError:(nullable NSError *)error {
+    NSLog(@"BROWSER: FINISH RECEIVING RESOURCE WITH NAME: %@. ERROR: %@", resourceName, error.localizedDescription);
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        for (id<BBSBrowserDelegate> delegate in self.delegates) {
+            if ([delegate respondsToSelector:@selector(browser:didFinishReceivingResourceWithName:withSession:fromPeer:atURL:withError:)]) {
+                [delegate browser:self
+didFinishReceivingResourceWithName:resourceName
+                      withSession:session
+                         fromPeer:peerID
+                            atURL:localURL
+                        withError:error];
+            }
+        }
+    });
 }
 
 

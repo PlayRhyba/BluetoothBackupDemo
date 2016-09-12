@@ -10,6 +10,9 @@
 #import "BBSClientViewController.h"
 #import "BBSBrowser.h"
 #import <SVProgressHUD/SVProgressHUD.h>
+#import <UIAlertController+Blocks/UIAlertController+Blocks.h>
+#import "BBSFileInfo.h"
+#import "BBSPreviewViewController.h"
 
 
 @interface BBSClientViewController () <UITableViewDataSource, UITableViewDelegate, BBSBrowserDelegate>
@@ -20,7 +23,7 @@
 @property (nonatomic, weak) IBOutlet UIButton *requestBackupsListButton;
 @property (nonatomic, weak) IBOutlet UIButton *sendBackupButton;
 @property (nonatomic, weak) IBOutlet UITableView *backupsListTableView;
-@property (nonatomic, strong) NSMutableArray *backupsList;
+@property (nonatomic, strong) NSMutableArray <BBSFileInfo *> *backupsList;
 
 - (IBAction)connectButtonClicked:(UIButton *)sender;
 - (IBAction)disconnectButtonClicked:(UIButton *)sender;
@@ -128,17 +131,33 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"_cell"];
     
     if (cell == nil) {
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"_cell"];
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"_cell"];
     }
     
-    cell.textLabel.text = self.backupsList[indexPath.row];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    
+    BBSFileInfo *fileInfo = self.backupsList[indexPath.row];
+    cell.textLabel.text = fileInfo.name;
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ bytes", fileInfo.size.stringValue];
     
     return cell;
 }
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    BBSFileInfo *fileInfo = self.backupsList[indexPath.row];
     
+    [UIAlertController showAlertInViewController:self
+                                       withTitle:@"Download Backup?"
+                                         message:[fileInfo description]
+                               cancelButtonTitle:@"Cancel"
+                          destructiveButtonTitle:@"Ok"
+                               otherButtonTitles:nil
+                                        tapBlock:^(UIAlertController * _Nonnull controller, UIAlertAction * _Nonnull action, NSInteger buttonIndex) {
+                                            if (buttonIndex == 1) {
+                                                [[BBSBrowser sharedInstance]requestBackupWithFileInfo:fileInfo];
+                                            }
+                                        }];
 }
 
 
@@ -163,6 +182,37 @@
         [self.backupsList removeAllObjects];
         [self.backupsList addObjectsFromArray:(NSArray *)command.payload];
         [_backupsListTableView reloadData];
+    }
+}
+
+
+- (void)                   browser:(BBSBrowser *)browser
+ didStartReceivingResourceWithName:(NSString *)resourceName
+                       withSession:(MCSession *)session
+                          fromPeer:(MCPeerID *)peerID
+                          progress:(NSProgress *)progress {
+    [SVProgressHUD showWithStatus:@"Downloading backup..."];
+}
+
+
+- (void)                    browser:(BBSBrowser *)browser
+ didFinishReceivingResourceWithName:(NSString *)resourceName
+                        withSession:(MCSession *)session
+                           fromPeer:(MCPeerID *)peerID
+                              atURL:(NSURL *)localURL
+                          withError:(NSError *)error {
+    if (error) {
+        [SVProgressHUD showErrorWithStatus:error.localizedDescription];
+    }
+    else {
+        [SVProgressHUD dismiss];
+        
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        BBSPreviewViewController *vc = [storyboard instantiateViewControllerWithIdentifier:NSStringFromClass([BBSPreviewViewController class])];
+        vc.name = resourceName;
+        vc.url = localURL;
+        
+        [self presentViewController:vc animated:YES completion:nil];
     }
 }
 

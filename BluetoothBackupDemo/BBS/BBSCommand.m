@@ -9,6 +9,7 @@
 
 NSString * const BBSCommandBackupsListRequest = @"BBSCommandBackupsListRequest";
 NSString * const BBSCommandBackupsListResponse = @"BBSCommandBackupsListResponse";
+NSString * const BBSCommandRequestBackup = @"BBSCommandRequestBackup";
 
 
 static NSString * const kName = @"name";
@@ -53,8 +54,13 @@ static NSString * const kPayload = @"payload";
 }
 
 
-+ (BBSCommand *)backupsListResponseCommandWithFileNames:(NSArray *)fileNames {
-    return [[BBSCommand alloc]initWithName:BBSCommandBackupsListResponse payload:fileNames];
++ (BBSCommand *)backupsListResponseCommandWithFiles:(NSArray <BBSFileInfo *> *)files {
+    return [[BBSCommand alloc]initWithName:BBSCommandBackupsListResponse payload:files];
+}
+
+
++ (BBSCommand *)requestBackupCommandWithFileInfo:(BBSFileInfo *)info {
+    return [[BBSCommand alloc]initWithName:BBSCommandRequestBackup payload:info];
 }
 
 

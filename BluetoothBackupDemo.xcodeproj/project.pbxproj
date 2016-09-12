@@ -24,6 +24,8 @@
 		11DC991E1D85F71900F96916 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 11DC991D1D85F71900F96916 /* Podfile */; };
 		11DC99211D86075800F96916 /* BBSCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 11DC99201D86075800F96916 /* BBSCommand.m */; };
 		3791A448261FB46432814225 /* libPods-BluetoothBackupDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C28AE19CBA730EFF6C6819E /* libPods-BluetoothBackupDemo.a */; };
+		C745C0821D869E75003EC0D1 /* BBSFileInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = C745C0811D869E75003EC0D1 /* BBSFileInfo.m */; };
+		C745C0851D86BB23003EC0D1 /* BBSPreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C745C0841D86BB23003EC0D1 /* BBSPreviewViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,10 +54,14 @@
 		11DC99151D85940B00F96916 /* 0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 0.png; sourceTree = "<group>"; };
 		11DC99171D85940B00F96916 /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2.png; sourceTree = "<group>"; };
 		11DC991B1D85A71D00F96916 /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
-		11DC991D1D85F71900F96916 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		11DC991D1D85F71900F96916 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		11DC991F1D86075800F96916 /* BBSCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBSCommand.h; sourceTree = "<group>"; };
 		11DC99201D86075800F96916 /* BBSCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBSCommand.m; sourceTree = "<group>"; };
 		2C28AE19CBA730EFF6C6819E /* libPods-BluetoothBackupDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BluetoothBackupDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C745C0801D869E75003EC0D1 /* BBSFileInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBSFileInfo.h; sourceTree = "<group>"; };
+		C745C0811D869E75003EC0D1 /* BBSFileInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBSFileInfo.m; sourceTree = "<group>"; };
+		C745C0831D86BB23003EC0D1 /* BBSPreviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBSPreviewViewController.h; sourceTree = "<group>"; };
+		C745C0841D86BB23003EC0D1 /* BBSPreviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBSPreviewViewController.m; sourceTree = "<group>"; };
 		D3FF57BB51DB8D992D27BF04 /* Pods-BluetoothBackupDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BluetoothBackupDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-BluetoothBackupDemo/Pods-BluetoothBackupDemo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -98,6 +104,8 @@
 				11D31D941D834DDD008168CA /* BBSClientViewController.m */,
 				11D31D961D834DDD008168CA /* BBSServerViewController.h */,
 				11D31D971D834DDD008168CA /* BBSServerViewController.m */,
+				C745C0831D86BB23003EC0D1 /* BBSPreviewViewController.h */,
+				C745C0841D86BB23003EC0D1 /* BBSPreviewViewController.m */,
 				11D31D901D834DDD008168CA /* BBSAppDelegate.h */,
 				11D31D911D834DDD008168CA /* BBSAppDelegate.m */,
 				11D31D991D834DDD008168CA /* Main.storyboard */,
@@ -131,6 +139,8 @@
 				11DC990E1D85899E00F96916 /* BBSBrowser.m */,
 				11DC991F1D86075800F96916 /* BBSCommand.h */,
 				11DC99201D86075800F96916 /* BBSCommand.m */,
+				C745C0801D869E75003EC0D1 /* BBSFileInfo.h */,
+				C745C0811D869E75003EC0D1 /* BBSFileInfo.m */,
 			);
 			path = BBS;
 			sourceTree = "<group>";
@@ -298,10 +308,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				11D31D981D834DDD008168CA /* BBSServerViewController.m in Sources */,
+				C745C0821D869E75003EC0D1 /* BBSFileInfo.m in Sources */,
 				11D31D921D834DDD008168CA /* BBSAppDelegate.m in Sources */,
 				11DC990C1D85895E00F96916 /* BBSAdvertiser.m in Sources */,
 				11DC990F1D85899E00F96916 /* BBSBrowser.m in Sources */,
 				11DC99131D858D7100F96916 /* MCSession+Utilities.m in Sources */,
+				C745C0851D86BB23003EC0D1 /* BBSPreviewViewController.m in Sources */,
 				11D31D951D834DDD008168CA /* BBSClientViewController.m in Sources */,
 				11DC99211D86075800F96916 /* BBSCommand.m in Sources */,
 				11D31D8F1D834DDD008168CA /* main.m in Sources */,
@@ -420,6 +432,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.smarttab.customerapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -432,6 +445,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.smarttab.customerapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
