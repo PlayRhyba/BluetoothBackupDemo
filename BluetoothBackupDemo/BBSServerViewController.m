@@ -66,11 +66,13 @@
 
 - (IBAction)startButtonClicked:(UIButton *)sender {
     [[BBSAdvertiser sharedInstance]start];
+    [self adjustUIState];
 }
 
 
 - (IBAction)stopButtonClicked:(UIButton *)sender {
     [[BBSAdvertiser sharedInstance]stop];
+    [self adjustUIState];
 }
 
 
@@ -89,6 +91,7 @@
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"_cell"];
     }
     
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.textLabel.text = self.connectedDevices[indexPath.row];
     
     return cell;
@@ -120,7 +123,21 @@
 
 
 - (void)adjustUIState {
+    BOOL isStarted = [[BBSAdvertiser sharedInstance]isStarted];
     
+    if (isStarted) {
+        _startButton.enabled = NO;
+        _stopButton.enabled = YES;
+    }
+    else {
+        _startButton.enabled = YES;
+        _stopButton.enabled = NO;
+        
+        [self.connectedDevices removeAllObjects];
+        [_connectedDevicesTableView reloadData];
+    }
+    
+    _statusView.backgroundColor = isStarted ? [UIColor greenColor] : [UIColor clearColor];
 }
 
 @end

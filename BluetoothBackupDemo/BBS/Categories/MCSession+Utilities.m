@@ -31,4 +31,13 @@
     }
 }
 
+
++ (UIColor *)colorWithSessionState:(MCSessionState)state {
+    switch (state) {
+        case MCSessionStateConnected: return [UIColor greenColor];
+        case MCSessionStateConnecting: return [UIColor yellowColor];
+        case MCSessionStateNotConnected: return [UIColor clearColor];
+    }
+}
+
 @end

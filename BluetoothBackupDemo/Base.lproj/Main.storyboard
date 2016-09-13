@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -42,6 +42,9 @@
                                 </constraints>
                                 <state key="normal" title="Disconnect">
                                     <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <state key="disabled">
+                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="disconnectButtonClicked:" destination="9pv-A4-QxB" eventType="touchUpInside" id="2Ii-Pj-Cdk"/>
@@ -135,7 +138,7 @@
                                     <constraint firstAttribute="height" constant="48" id="AcM-vf-x2x"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -197,18 +200,31 @@
                                 <state key="normal" title="Stop">
                                     <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <state key="disabled">
+                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <connections>
                                     <action selector="stopButtonClicked:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="47O-0n-1Uz"/>
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="PwW-K1-LJ8">
-                                <rect key="frame" x="8" y="76" width="304" height="435"/>
+                                <rect key="frame" x="8" y="105" width="304" height="406"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="8rJ-Kc-sve" id="gGb-qj-8Mn"/>
                                     <outlet property="delegate" destination="8rJ-Kc-sve" id="nbX-wc-uXq"/>
                                 </connections>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Connected peers:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yom-8R-3xD">
+                                <rect key="frame" x="8" y="76" width="143" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="143" id="hHr-Lz-EQA"/>
+                                    <constraint firstAttribute="height" constant="21" id="iiP-gE-9b7"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -218,13 +234,15 @@
                             <constraint firstItem="TUW-Eh-WTR" firstAttribute="leading" secondItem="aUZ-aq-hNx" secondAttribute="trailing" constant="8" id="GEj-8N-89b"/>
                             <constraint firstItem="PwW-K1-LJ8" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leadingMargin" constant="-8" id="GuR-Xp-ucX"/>
                             <constraint firstItem="TUW-Eh-WTR" firstAttribute="width" secondItem="aUZ-aq-hNx" secondAttribute="width" id="Lfy-Fb-tRL"/>
+                            <constraint firstItem="PwW-K1-LJ8" firstAttribute="top" secondItem="yom-8R-3xD" secondAttribute="bottom" constant="8" id="Nyv-Kp-AEK"/>
                             <constraint firstItem="aUZ-aq-hNx" firstAttribute="top" secondItem="L7p-HK-0SC" secondAttribute="bottom" constant="8" id="R3l-dO-3w7"/>
-                            <constraint firstItem="PwW-K1-LJ8" firstAttribute="top" secondItem="TUW-Eh-WTR" secondAttribute="bottom" constant="8" id="RAk-0Z-1ec"/>
                             <constraint firstItem="Djb-ko-YwX" firstAttribute="top" secondItem="PwW-K1-LJ8" secondAttribute="bottom" constant="8" id="Urd-lR-8c7"/>
                             <constraint firstItem="Ek9-Et-mUK" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leading" id="cdN-Nu-0ze"/>
                             <constraint firstItem="Ek9-Et-mUK" firstAttribute="top" secondItem="QS5-Rx-YEW" secondAttribute="top" id="lVF-98-Cjg"/>
+                            <constraint firstItem="yom-8R-3xD" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leading" constant="8" id="mxf-V7-p1B"/>
                             <constraint firstItem="aUZ-aq-hNx" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leadingMargin" constant="-4" id="p9c-eE-ba2"/>
                             <constraint firstItem="TUW-Eh-WTR" firstAttribute="top" secondItem="L7p-HK-0SC" secondAttribute="bottom" constant="8" id="uvO-fg-Szb"/>
+                            <constraint firstItem="yom-8R-3xD" firstAttribute="top" secondItem="aUZ-aq-hNx" secondAttribute="bottom" constant="8" id="uxv-6i-Ecs"/>
                             <constraint firstAttribute="trailingMargin" secondItem="PwW-K1-LJ8" secondAttribute="trailing" constant="-8" id="wdW-O2-KA2"/>
                         </constraints>
                     </view>

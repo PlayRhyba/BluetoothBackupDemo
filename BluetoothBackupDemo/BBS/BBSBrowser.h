@@ -47,6 +47,8 @@
 
 @interface BBSBrowser : BBSMulticastSender
 
+@property (nonatomic, readonly) MCSessionState sessionState;
+
 + (instancetype)sharedInstance;
 - (void)browseWithViewController:(UIViewController *)vc;
 - (void)dismissBrowserViewController;

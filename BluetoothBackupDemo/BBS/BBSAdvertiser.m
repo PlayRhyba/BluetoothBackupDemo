@@ -69,6 +69,11 @@
 }
 
 
+- (BOOL)isStarted {
+    return _advertiser != nil;
+}
+
+
 #pragma mark - MCSessionDelegate
 
 
