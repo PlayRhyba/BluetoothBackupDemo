@@ -15,18 +15,19 @@
 		11D31D9B1D834DDD008168CA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11D31D991D834DDD008168CA /* Main.storyboard */; };
 		11D31D9D1D834DDD008168CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11D31D9C1D834DDD008168CA /* Assets.xcassets */; };
 		11D31DA01D834DDD008168CA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11D31D9E1D834DDD008168CA /* LaunchScreen.storyboard */; };
-		11DC99081D85891700F96916 /* BBSMulticastSender.m in Sources */ = {isa = PBXBuildFile; fileRef = 11DC99041D85891700F96916 /* BBSMulticastSender.m */; };
-		11DC990C1D85895E00F96916 /* BBSAdvertiser.m in Sources */ = {isa = PBXBuildFile; fileRef = 11DC990B1D85895E00F96916 /* BBSAdvertiser.m */; };
-		11DC990F1D85899E00F96916 /* BBSBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 11DC990E1D85899E00F96916 /* BBSBrowser.m */; };
 		11DC99131D858D7100F96916 /* MCSession+Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 11DC99121D858D7100F96916 /* MCSession+Utilities.m */; };
 		11DC99181D85940B00F96916 /* 0.png in Resources */ = {isa = PBXBuildFile; fileRef = 11DC99151D85940B00F96916 /* 0.png */; };
 		11DC991A1D85940B00F96916 /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 11DC99171D85940B00F96916 /* 2.png */; };
 		11DC991C1D85A71D00F96916 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 11DC991B1D85A71D00F96916 /* 1.png */; };
 		11DC991E1D85F71900F96916 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 11DC991D1D85F71900F96916 /* Podfile */; };
-		11DC99211D86075800F96916 /* BBSCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 11DC99201D86075800F96916 /* BBSCommand.m */; };
 		3791A448261FB46432814225 /* libPods-BluetoothBackupDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C28AE19CBA730EFF6C6819E /* libPods-BluetoothBackupDemo.a */; };
-		C745C0821D869E75003EC0D1 /* BBSFileInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = C745C0811D869E75003EC0D1 /* BBSFileInfo.m */; };
 		C745C0851D86BB23003EC0D1 /* BBSPreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C745C0841D86BB23003EC0D1 /* BBSPreviewViewController.m */; };
+		C798F4B61D88057700E283E0 /* BBSAdvertiser.m in Sources */ = {isa = PBXBuildFile; fileRef = C798F4AA1D88057700E283E0 /* BBSAdvertiser.m */; };
+		C798F4B71D88057700E283E0 /* BBSBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = C798F4AC1D88057700E283E0 /* BBSBrowser.m */; };
+		C798F4B81D88057700E283E0 /* BBSCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = C798F4AE1D88057700E283E0 /* BBSCommand.m */; };
+		C798F4B91D88057700E283E0 /* BBSFileInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = C798F4B01D88057700E283E0 /* BBSFileInfo.m */; };
+		C798F4BA1D88057700E283E0 /* BBSMulticastSender.m in Sources */ = {isa = PBXBuildFile; fileRef = C798F4B21D88057700E283E0 /* BBSMulticastSender.m */; };
+		C798F4BB1D88057700E283E0 /* BBSProgressTracker.m in Sources */ = {isa = PBXBuildFile; fileRef = C798F4B51D88057700E283E0 /* BBSProgressTracker.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,12 +45,6 @@
 		11D31D9C1D834DDD008168CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		11D31D9F1D834DDD008168CA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		11D31DA11D834DDD008168CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		11DC99031D85891700F96916 /* BBSMulticastSender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBSMulticastSender.h; sourceTree = "<group>"; };
-		11DC99041D85891700F96916 /* BBSMulticastSender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBSMulticastSender.m; sourceTree = "<group>"; };
-		11DC990A1D85895E00F96916 /* BBSAdvertiser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBSAdvertiser.h; sourceTree = "<group>"; };
-		11DC990B1D85895E00F96916 /* BBSAdvertiser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBSAdvertiser.m; sourceTree = "<group>"; };
-		11DC990D1D85899E00F96916 /* BBSBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBSBrowser.h; sourceTree = "<group>"; };
-		11DC990E1D85899E00F96916 /* BBSBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBSBrowser.m; sourceTree = "<group>"; };
 		11DC99101D858A7000F96916 /* BBSConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBSConstants.h; sourceTree = "<group>"; };
 		11DC99111D858D7100F96916 /* MCSession+Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MCSession+Utilities.h"; sourceTree = "<group>"; };
 		11DC99121D858D7100F96916 /* MCSession+Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MCSession+Utilities.m"; sourceTree = "<group>"; };
@@ -57,13 +52,21 @@
 		11DC99171D85940B00F96916 /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2.png; sourceTree = "<group>"; };
 		11DC991B1D85A71D00F96916 /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
 		11DC991D1D85F71900F96916 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		11DC991F1D86075800F96916 /* BBSCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBSCommand.h; sourceTree = "<group>"; };
-		11DC99201D86075800F96916 /* BBSCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBSCommand.m; sourceTree = "<group>"; };
 		2C28AE19CBA730EFF6C6819E /* libPods-BluetoothBackupDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BluetoothBackupDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		C745C0801D869E75003EC0D1 /* BBSFileInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBSFileInfo.h; sourceTree = "<group>"; };
-		C745C0811D869E75003EC0D1 /* BBSFileInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBSFileInfo.m; sourceTree = "<group>"; };
 		C745C0831D86BB23003EC0D1 /* BBSPreviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBSPreviewViewController.h; sourceTree = "<group>"; };
 		C745C0841D86BB23003EC0D1 /* BBSPreviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBSPreviewViewController.m; sourceTree = "<group>"; };
+		C798F4A91D88057700E283E0 /* BBSAdvertiser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBSAdvertiser.h; sourceTree = "<group>"; };
+		C798F4AA1D88057700E283E0 /* BBSAdvertiser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBSAdvertiser.m; sourceTree = "<group>"; };
+		C798F4AB1D88057700E283E0 /* BBSBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBSBrowser.h; sourceTree = "<group>"; };
+		C798F4AC1D88057700E283E0 /* BBSBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBSBrowser.m; sourceTree = "<group>"; };
+		C798F4AD1D88057700E283E0 /* BBSCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBSCommand.h; sourceTree = "<group>"; };
+		C798F4AE1D88057700E283E0 /* BBSCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBSCommand.m; sourceTree = "<group>"; };
+		C798F4AF1D88057700E283E0 /* BBSFileInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBSFileInfo.h; sourceTree = "<group>"; };
+		C798F4B01D88057700E283E0 /* BBSFileInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBSFileInfo.m; sourceTree = "<group>"; };
+		C798F4B11D88057700E283E0 /* BBSMulticastSender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBSMulticastSender.h; sourceTree = "<group>"; };
+		C798F4B21D88057700E283E0 /* BBSMulticastSender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBSMulticastSender.m; sourceTree = "<group>"; };
+		C798F4B41D88057700E283E0 /* BBSProgressTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBSProgressTracker.h; sourceTree = "<group>"; };
+		C798F4B51D88057700E283E0 /* BBSProgressTracker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBSProgressTracker.m; sourceTree = "<group>"; };
 		D3FF57BB51DB8D992D27BF04 /* Pods-BluetoothBackupDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BluetoothBackupDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-BluetoothBackupDemo/Pods-BluetoothBackupDemo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -132,17 +135,9 @@
 			isa = PBXGroup;
 			children = (
 				11DC99101D858A7000F96916 /* BBSConstants.h */,
-				11DC99031D85891700F96916 /* BBSMulticastSender.h */,
-				11DC99041D85891700F96916 /* BBSMulticastSender.m */,
+				C798F4A81D88057700E283E0 /* Core */,
+				C798F4B31D88057700E283E0 /* Utitities */,
 				11DC99051D85891700F96916 /* Categories */,
-				11DC990A1D85895E00F96916 /* BBSAdvertiser.h */,
-				11DC990B1D85895E00F96916 /* BBSAdvertiser.m */,
-				11DC990D1D85899E00F96916 /* BBSBrowser.h */,
-				11DC990E1D85899E00F96916 /* BBSBrowser.m */,
-				11DC991F1D86075800F96916 /* BBSCommand.h */,
-				11DC99201D86075800F96916 /* BBSCommand.m */,
-				C745C0801D869E75003EC0D1 /* BBSFileInfo.h */,
-				C745C0811D869E75003EC0D1 /* BBSFileInfo.m */,
 			);
 			path = BBS;
 			sourceTree = "<group>";
@@ -174,6 +169,32 @@
 				D3FF57BB51DB8D992D27BF04 /* Pods-BluetoothBackupDemo.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		C798F4A81D88057700E283E0 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				C798F4B11D88057700E283E0 /* BBSMulticastSender.h */,
+				C798F4B21D88057700E283E0 /* BBSMulticastSender.m */,
+				C798F4A91D88057700E283E0 /* BBSAdvertiser.h */,
+				C798F4AA1D88057700E283E0 /* BBSAdvertiser.m */,
+				C798F4AB1D88057700E283E0 /* BBSBrowser.h */,
+				C798F4AC1D88057700E283E0 /* BBSBrowser.m */,
+				C798F4AD1D88057700E283E0 /* BBSCommand.h */,
+				C798F4AE1D88057700E283E0 /* BBSCommand.m */,
+				C798F4AF1D88057700E283E0 /* BBSFileInfo.h */,
+				C798F4B01D88057700E283E0 /* BBSFileInfo.m */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		C798F4B31D88057700E283E0 /* Utitities */ = {
+			isa = PBXGroup;
+			children = (
+				C798F4B41D88057700E283E0 /* BBSProgressTracker.h */,
+				C798F4B51D88057700E283E0 /* BBSProgressTracker.m */,
+			);
+			path = Utitities;
 			sourceTree = "<group>";
 		};
 		DEB44B0C97B51CCFC409FEDE /* Frameworks */ = {
@@ -312,16 +333,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				11D31D981D834DDD008168CA /* BBSServerViewController.m in Sources */,
-				C745C0821D869E75003EC0D1 /* BBSFileInfo.m in Sources */,
 				11D31D921D834DDD008168CA /* BBSAppDelegate.m in Sources */,
-				11DC990C1D85895E00F96916 /* BBSAdvertiser.m in Sources */,
-				11DC990F1D85899E00F96916 /* BBSBrowser.m in Sources */,
+				C798F4B81D88057700E283E0 /* BBSCommand.m in Sources */,
 				11DC99131D858D7100F96916 /* MCSession+Utilities.m in Sources */,
+				C798F4B61D88057700E283E0 /* BBSAdvertiser.m in Sources */,
+				C798F4B71D88057700E283E0 /* BBSBrowser.m in Sources */,
 				C745C0851D86BB23003EC0D1 /* BBSPreviewViewController.m in Sources */,
+				C798F4B91D88057700E283E0 /* BBSFileInfo.m in Sources */,
 				11D31D951D834DDD008168CA /* BBSClientViewController.m in Sources */,
-				11DC99211D86075800F96916 /* BBSCommand.m in Sources */,
+				C798F4BA1D88057700E283E0 /* BBSMulticastSender.m in Sources */,
+				C798F4BB1D88057700E283E0 /* BBSProgressTracker.m in Sources */,
 				11D31D8F1D834DDD008168CA /* main.m in Sources */,
-				11DC99081D85891700F96916 /* BBSMulticastSender.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -383,7 +405,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -420,7 +442,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;

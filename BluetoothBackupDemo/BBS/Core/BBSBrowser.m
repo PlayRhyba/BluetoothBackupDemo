@@ -9,9 +9,7 @@
 
 #import "BBSBrowser.h"
 #import "MCSession+Utilities.h"
-
-
-static NSString * const kFractionCompletedKeyPath = @"fractionCompleted";
+#import "BBSProgressTracker.h"
 
 
 @interface BBSBrowser () <MCSessionDelegate, MCBrowserViewControllerDelegate>
@@ -19,7 +17,7 @@ static NSString * const kFractionCompletedKeyPath = @"fractionCompleted";
 @property (nonatomic, readwrite) MCSessionState sessionState;
 @property (nonatomic, strong) MCBrowserViewController *browserVC;
 @property (nonatomic, strong) MCSession *clientSession;
-@property (nonatomic, copy) BBSProgressBlock backupUploadingProgressBlock;
+@property (nonatomic, strong) BBSProgressTracker *progressTracker;
 
 @end
 
@@ -91,7 +89,7 @@ static NSString * const kFractionCompletedKeyPath = @"fractionCompleted";
                                              withName:resourceURL.absoluteString.lastPathComponent
                                                toPeer:_clientSession.connectedPeers.firstObject
                                 withCompletionHandler:^(NSError * _Nullable error) {
-                                    weakSelf.backupUploadingProgressBlock = nil;
+                                    weakSelf.progressTracker = nil;
                                     
                                     dispatch_async(dispatch_get_main_queue(), ^{
                                         if (completion) {
@@ -100,12 +98,8 @@ static NSString * const kFractionCompletedKeyPath = @"fractionCompleted";
                                     });
                                 }];
     if (progress) {
-        self.backupUploadingProgressBlock = progress;
-        
-        [p addObserver:self
-            forKeyPath:kFractionCompletedKeyPath
-               options:NSKeyValueObservingOptionNew
-               context:nil];
+        self.progressTracker = [[BBSProgressTracker alloc]initWithProgress:p
+                                                             trackingBlock:progress];
     }
 }
 
@@ -240,25 +234,6 @@ didFinishReceivingResourceWithName:resourceName
 
 - (void)browserViewControllerWasCancelled:(MCBrowserViewController *)browserViewController {
     [self dismissBrowserViewController];
-}
-
-
-#pragma mark - KVO
-
-
-- (void)observeValueForKeyPath:(NSString *)keyPath
-                      ofObject:(id)object
-                        change:(NSDictionary<NSString *,id> *)change
-                       context:(void *)context {
-    if (keyPath == kFractionCompletedKeyPath) {
-        NSProgress *progress = (NSProgress *)object;
-        
-        dispatch_async(dispatch_get_main_queue(), ^{
-            if (_backupUploadingProgressBlock) {
-                _backupUploadingProgressBlock(progress.fractionCompleted);
-            }
-        });
-    }
 }
 
 @end

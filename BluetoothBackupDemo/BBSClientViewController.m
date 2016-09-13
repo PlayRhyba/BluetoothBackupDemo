@@ -14,6 +14,7 @@
 #import "BBSFileInfo.h"
 #import "BBSPreviewViewController.h"
 #import "MCSession+Utilities.h"
+#import "BBSProgressTracker.h"
 
 
 @interface BBSClientViewController () <UITableViewDataSource, UITableViewDelegate, BBSBrowserDelegate>
@@ -25,6 +26,7 @@
 @property (nonatomic, weak) IBOutlet UIButton *sendBackupButton;
 @property (nonatomic, weak) IBOutlet UITableView *backupsListTableView;
 @property (nonatomic, strong) NSMutableArray <BBSFileInfo *> *backupsList;
+@property (nonatomic, strong) BBSProgressTracker *progressTracker;
 
 - (IBAction)connectButtonClicked:(UIButton *)sender;
 - (IBAction)disconnectButtonClicked:(UIButton *)sender;
@@ -194,7 +196,14 @@
                        withSession:(MCSession *)session
                           fromPeer:(MCPeerID *)peerID
                           progress:(NSProgress *)progress {
-    [SVProgressHUD showWithStatus:@"Downloading backup..."];
+    NSString *status = @"Downloading backup...";
+    
+    [SVProgressHUD showWithStatus:status];
+    
+    self.progressTracker = [[BBSProgressTracker alloc]initWithProgress:progress
+                                                         trackingBlock:^(double progress) {
+                                                             [SVProgressHUD showProgress:progress status:status];
+                                                         }];
 }
 
 
@@ -204,6 +213,8 @@
                            fromPeer:(MCPeerID *)peerID
                               atURL:(NSURL *)localURL
                           withError:(NSError *)error {
+    self.progressTracker = nil;
+    
     if (error) {
         [SVProgressHUD showErrorWithStatus:error.localizedDescription];
     }
