@@ -12,10 +12,6 @@ NSString * const BBSCommandBackupsListResponse = @"BBSCommandBackupsListResponse
 NSString * const BBSCommandRequestBackup = @"BBSCommandRequestBackup";
 
 
-static NSString * const kName = @"name";
-static NSString * const kPayload = @"payload";
-
-
 @interface BBSCommand ()
 
 @property (nonatomic, strong, readwrite) NSString *name;
@@ -31,15 +27,15 @@ static NSString * const kPayload = @"payload";
 
 
 - (void)encodeWithCoder:(NSCoder *)aCoder {
-    [aCoder encodeObject:_name forKey:kName];
-    [aCoder encodeObject:_payload forKey:kPayload];
+    [aCoder encodeObject:_name forKey:NSStringFromSelector(@selector(name))];
+    [aCoder encodeObject:_payload forKey:NSStringFromSelector(@selector(payload))];
 }
 
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder {
     if (self = [super init]) {
-        _name = [aDecoder decodeObjectForKey:kName];
-        _payload = [aDecoder decodeObjectForKey:kPayload];
+        _name = [aDecoder decodeObjectForKey:NSStringFromSelector(@selector(name))];
+        _payload = [aDecoder decodeObjectForKey:NSStringFromSelector(@selector(payload))];
     }
     
     return self;

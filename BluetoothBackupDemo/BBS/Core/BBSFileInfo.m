@@ -10,12 +10,6 @@
 #import "BBSFileInfo.h"
 
 
-static NSString * const kName = @"name";
-static NSString * const kPath = @"path";
-static NSString * const kCreationDate = @"creationDate";
-static NSString * const kSize = @"size";
-
-
 @interface BBSFileInfo ()
 
 @property (nonatomic, strong, readwrite) NSString *name;
@@ -33,19 +27,19 @@ static NSString * const kSize = @"size";
 
 
 - (void)encodeWithCoder:(NSCoder *)aCoder {
-    [aCoder encodeObject:_name forKey:kName];
-    [aCoder encodeObject:_path forKey:kPath];
-    [aCoder encodeObject:_creationDate forKey:kCreationDate];
-    [aCoder encodeObject:_size forKey:kSize];
+    [aCoder encodeObject:_name forKey:NSStringFromSelector(@selector(name))];
+    [aCoder encodeObject:_path forKey:NSStringFromSelector(@selector(path))];
+    [aCoder encodeObject:_creationDate forKey:NSStringFromSelector(@selector(creationDate))];
+    [aCoder encodeObject:_size forKey:NSStringFromSelector(@selector(size))];
 }
 
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder {
     if (self = [super init]) {
-        _name = [aDecoder decodeObjectForKey:kName];
-        _path = [aDecoder decodeObjectForKey:kPath];
-        _creationDate = [aDecoder decodeObjectForKey:kCreationDate];
-        _size = [aDecoder decodeObjectForKey:kSize];
+        _name = [aDecoder decodeObjectForKey:NSStringFromSelector(@selector(name))];
+        _path = [aDecoder decodeObjectForKey:NSStringFromSelector(@selector(path))];
+        _creationDate = [aDecoder decodeObjectForKey:NSStringFromSelector(@selector(creationDate))];
+        _size = [aDecoder decodeObjectForKey:NSStringFromSelector(@selector(size))];
     }
     
     return self;
@@ -56,10 +50,10 @@ static NSString * const kSize = @"size";
 
 
 - (NSString *)description {
-    NSDictionary *info = @{kName : _name ?: @"",
-                           kPath : _path ?: @"",
-                           kCreationDate : _creationDate ?: [NSNull null],
-                           kSize : _size ?: @0};
+    NSDictionary *info = @{NSStringFromSelector(@selector(name)) : _name ?: @"",
+                           NSStringFromSelector(@selector(path)) : _path ?: @"",
+                           NSStringFromSelector(@selector(creationDate)) : _creationDate ?: [NSNull null],
+                           NSStringFromSelector(@selector(size)) : _size ?: @0};
     
     return [info description];
 }
