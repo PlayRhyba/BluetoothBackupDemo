@@ -25,6 +25,23 @@
 @implementation BBSBrowser
 
 
+#pragma mark - BBSMulticastSender
+
+
+- (void)addDelegate:(id)delegate {
+    if ([delegate conformsToProtocol:@protocol(BBSBrowserDelegate)]) {
+        [super addDelegate:delegate];
+    }
+}
+
+
+- (void)removeDelegate:(id)delegate {
+    if ([delegate conformsToProtocol:@protocol(BBSBrowserDelegate)]) {
+        [super removeDelegate:delegate];
+    }
+}
+
+
 #pragma mark - Public Methods
 
 

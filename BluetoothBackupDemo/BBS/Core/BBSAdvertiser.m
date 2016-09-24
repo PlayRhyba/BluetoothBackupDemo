@@ -29,6 +29,23 @@
 @implementation BBSAdvertiser
 
 
+#pragma mark - BBSMulticastSender
+
+
+- (void)addDelegate:(id)delegate {
+    if ([delegate conformsToProtocol:@protocol(BBSAdvertiserDelegate)]) {
+        [super addDelegate:delegate];
+    }
+}
+
+
+- (void)removeDelegate:(id)delegate {
+    if ([delegate conformsToProtocol:@protocol(BBSAdvertiserDelegate)]) {
+        [super removeDelegate:delegate];
+    }
+}
+
+
 #pragma mark - Public Methods
 
 
